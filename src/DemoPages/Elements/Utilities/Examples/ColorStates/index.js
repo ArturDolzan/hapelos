@@ -37,135 +37,144 @@ const UtilitiesColors = (props) => {
                 transitionEnter={false}
                 transitionLeave={false}>
                 <Row>
-                    <Col lg="6">
-                        <Card className="main-card mb-3">
-                            <CardBody>
-                                <CardTitle>Solid Colors</CardTitle>
-                                <ColorSwatches/>
-                            </CardBody>
-                        </Card>
-                        <Card className="main-card mb-3">
-                            <CardBody>
-                                <CardTitle>Gradient Colors</CardTitle>
-                                <ColorGradients/>
-                            </CardBody>
-                        </Card>
-                    </Col>
-                    <Col lg="6">
-                        <Card className="main-card mb-3">
-                            <CardBody>
-                                <CardTitle>Text Colors</CardTitle>
-                                <TextColor/>
-                            </CardBody>
-                        </Card>
-                    </Col>
+                   
                     <Col md="12">
                         <Card className="main-card mb-3">
                             <CardBody>
-                                <CardTitle>Background Images</CardTitle>
+                                <CardTitle>Fotinhos dos dogs</CardTitle>
                                 <Row>
                                     <Col md="3">
                                         <div className="demo-image-bg"
                                              style={{
-                                                 backgroundImage: 'url(' + bg1 + ')'
+                                                 backgroundImage: 'url(' + bg1 + ')',
+                                                 backgroundSize: 'cover',
+                                                 backgroundPosition: 'center'
                                              }}
                                         />
                                     </Col>
                                     <Col md="3">
                                         <div className="demo-image-bg"
                                              style={{
-                                                 backgroundImage: 'url(' + bg2 + ')'
+                                                 backgroundImage: 'url(' + bg2 + ')',
+                                                 backgroundSize: 'cover',
+                                                 backgroundPosition: 'center'
                                              }}
                                         />
                                     </Col>
                                     <Col md="3">
                                         <div className="demo-image-bg"
                                              style={{
-                                                 backgroundImage: 'url(' + bg3 + ')'
+                                                 backgroundImage: 'url(' + bg3 + ')',
+                                                 backgroundSize: 'cover',
+                                                 backgroundPosition: 'center'
                                              }}
                                         />
                                     </Col>
                                     <Col md="3">
                                         <div className="demo-image-bg"
                                              style={{
-                                                 backgroundImage: 'url(' + bg4 + ')'
+                                                 backgroundImage: 'url(' + bg4 + ')',
+                                                 backgroundSize: 'cover',
+                                                 backgroundPosition: 'center'
                                              }}
                                         />
                                     </Col>
                                     <Col md="3">
                                         <div className="demo-image-bg"
                                              style={{
-                                                 backgroundImage: 'url(' + bg5 + ')'
+                                                 backgroundImage: 'url(' + bg5 + ')',
+                                                 backgroundSize: 'cover',
+                                                 backgroundPosition: 'center'
                                              }}
                                         />
                                     </Col>
                                     <Col md="3">
                                         <div className="demo-image-bg"
                                              style={{
-                                                 backgroundImage: 'url(' + bg6 + ')'
+                                                 backgroundImage: 'url(' + bg6 + ')',
+                                                 backgroundSize: 'cover',
+                                                 backgroundPosition: 'center'
                                              }}
                                         />
                                     </Col>
                                     <Col md="3">
                                         <div className="demo-image-bg"
                                              style={{
-                                                 backgroundImage: 'url(' + bg7 + ')'
+                                                 backgroundImage: 'url(' + bg7 + ')',
+                                                 backgroundSize: 'cover',
+                                                 backgroundPosition: 'center'
                                              }}
                                         />
                                     </Col>
                                     <Col md="3">
                                         <div className="demo-image-bg"
                                              style={{
-                                                 backgroundImage: 'url(' + bg8 + ')'
+                                                 backgroundImage: 'url(' + bg8 + ')',
+                                                 backgroundSize: 'cover',
+                                                 backgroundPosition: 'center'
                                              }}
                                         />
                                     </Col>
                                     <Col md="3">
                                         <div className="demo-image-bg"
                                              style={{
-                                                 backgroundImage: 'url(' + bg9 + ')'
+                                                 backgroundImage: 'url(' + bg9 + ')',
+                                                 backgroundSize: 'cover',
+                                                 backgroundPosition: 'center'
                                              }}
                                         />
                                     </Col>
                                     <Col md="3">
                                         <div className="demo-image-bg"
                                              style={{
-                                                 backgroundImage: 'url(' + bg10 + ')'
+                                                 backgroundImage: 'url(' + bg10 + ')',
+                                                 backgroundSize: 'cover',
+                                                 backgroundPosition: 'center'
                                              }}
                                         />
                                     </Col>
                                     <Col md="3">
                                         <div className="demo-image-bg"
                                              style={{
-                                                 backgroundImage: 'url(' + bg11 + ')'
+                                                 backgroundImage: 'url(' + bg11 + ')',
+                                                 backgroundSize: 'cover',
+                                                 backgroundPosition: 'center'
                                              }}
                                         />
                                     </Col>
                                     <Col md="3">
                                         <div className="demo-image-bg"
                                              style={{
-                                                 backgroundImage: 'url(' + bg12 + ')'
+                                                 backgroundImage: 'url(' + bg12 + ')',
+                                                 backgroundSize: 'cover',
+                                                 backgroundPosition: 'center'
                                              }}
                                         />
                                     </Col>
                                     <Col md="3">
                                         <div className="demo-image-bg"
                                              style={{
-                                                 backgroundImage: 'url(' + bg13 + ')'
+                                                 backgroundImage: 'url(' + bg13 + ')',
+                                                 backgroundSize: 'cover',
+                                                 backgroundPosition: 'center'
                                              }}
                                         />
                                     </Col>
                                     <Col md="3">
                                         <div className="demo-image-bg"
                                              style={{
-                                                 backgroundImage: 'url(' + bg14 + ')'
+                                                 backgroundImage: 'url(' + bg14 + ')',
+                                                 backgroundSize: 'cover',
+                                                 backgroundPosition: 'center'
                                              }}
                                         />
                                     </Col>
                                     <Col md="3">
                                         <div className="demo-image-bg"
                                              style={{
-                                                 backgroundImage: 'url(' + bg15 + ')'
+                                                 backgroundImage: 'url(' + bg15 + ')',
+                                                 backgroundSize: 'cover',
+                                                 backgroundPosition: 'center'
                                              }}
                                         />
                                     </Col>

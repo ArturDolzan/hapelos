@@ -14,13 +14,13 @@ export default class UtilitiesExamples extends React.Component {
         return (
             <Fragment>
                 <PageTitle
-                    heading="Utilities"
-                    subheading="These are helpers that speed up the dev time for various components and effects."
-                    icon="pe-7s-wristwatch icon-gradient bg-deep-blue"
+                    heading="Filtros"
+                    subheading=""
+                    icon="pe-7s-filter icon-gradient bg-deep-blue"
                 />
-                <UtilitiesAnimations/>
+                {/* <UtilitiesAnimations/> */}
                 <UtilitiesColors/>
-                <UtilitiesHelpers/>
+                {/* <UtilitiesHelpers/> */}
             </Fragment>
         );
     }
