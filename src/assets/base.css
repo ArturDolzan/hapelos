@@ -12067,7 +12067,14 @@ body {
 
 .demo-image-bg {
   height: 350px;
-  margin-bottom: 30px; }
+  margin-bottom: 30px; 
+  background-size: cover;
+  background-position: center; 
+  margin: 0 0 100px 0 }
+
+.desc-produto {
+  margin
+}
 
 .loader-wrapper {
   width: 150px;
