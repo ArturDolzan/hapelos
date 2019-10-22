@@ -20,8 +20,8 @@ class PageTitle extends Component {
 
             <div className="app-page-title">
                 <div className="page-title-wrapper">
-                    <div className="page-title-heading">
-                        <div
+                    {/* <div className="page-title-heading">
+                    <div
                             className={cx("page-title-icon", {'d-none': !enablePageTitleIcon})}>
                             <i className={icon}/>
                         </div>
@@ -32,9 +32,20 @@ class PageTitle extends Component {
                                 {subheading}
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="page-title-actions">
-                        {/* <TitleComponent2/> */}
+                    <div id="notif" style={{
+                                backgroundColor: "#f00",
+                                width: "10px",
+                                height: "10px",
+                                borderRadius: "10px",
+                                position: "absolute"
+                            }}></div>
+                        <div
+                            className={cx("page-title-icon", {'d-none': !enablePageTitleIcon})}>
+                            <i className="pe-7s-cart"/>
+                            
+                        </div>
                         
                     </div>
                 </div>

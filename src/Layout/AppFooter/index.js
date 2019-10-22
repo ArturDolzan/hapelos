@@ -12,29 +12,29 @@ class AppFooter extends React.Component {
                             <ul className="nav">
                                 <li className="nav-item">
                                     <a href="javascript:void(0);" className="nav-link">
-                                        Footer Link 1
+                                        SUGESTÕES
                                     </a>
                                 </li>
                                 <li className="nav-item">
                                     <a href="javascript:void(0);" className="nav-link">
-                                        Footer Link 2
+                                        SOBRE O PROJETO
                                     </a>
                                 </li>
                             </ul>
                         </div>
                         <div className="app-footer-right">
                             <ul className="nav">
-                                <li className="nav-item">
+                                {/* <li className="nav-item">
                                     <a href="javascript:void(0);" className="nav-link">
                                         Footer Link 3
                                     </a>
-                                </li>
+                                </li> */}
                                 <li className="nav-item">
                                     <a href="javascript:void(0);" className="nav-link">
-                                        <div className="badge badge-success mr-1 ml-0">
+                                        {/* <div className="badge badge-success mr-1 ml-0">
                                             <small>NEW</small>
-                                        </div>
-                                        Footer Link 4
+                                        </div> */}
+                                        CONTATO
                                     </a>
                                 </li>
                             </ul>

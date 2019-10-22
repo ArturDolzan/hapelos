@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 import Hamburger from 'react-hamburgers';
 
@@ -46,18 +47,21 @@ class HeaderLogo extends React.Component {
 
         return (
             <Fragment>
-                <div className="app-header__logo">
-                    <div className="logo-src"/>
-                    {/* <div className="header__pane ml-auto">
-                        <div onClick={this.toggleEnableClosedSidebar}>
-                            <Hamburger
-                                active={enableClosedSidebar}
-                                type="elastic"
-                                onClick={() => this.setState({active: !this.state.active})}
-                            />
-                        </div>
-                    </div> */}
-                </div>
+                <Link to={'/'}>
+                    <div className="app-header__logo">
+                        <div className="logo-src"/>
+                        {/* <div className="header__pane ml-auto">
+                            <div onClick={this.toggleEnableClosedSidebar}>
+                                <Hamburger
+                                    active={enableClosedSidebar}
+                                    type="elastic"
+                                    onClick={() => this.setState({active: !this.state.active})}
+                                />
+                            </div>
+                        </div> */}
+                    </div>
+                </Link>
+
                 <AppMobileMenu/>
             </Fragment>
         )

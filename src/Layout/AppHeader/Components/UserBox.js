@@ -92,12 +92,21 @@ class UserBox extends React.Component {
                                 </UncontrolledButtonDropdown>
                             </div>
                             <div className="widget-content-left  ml-3 header-user-info">
-                                <div className="widget-heading">
-                                    Alina Mclourd
-                                </div>
-                                <div className="widget-subheading">
-                                    VP People Manager
-                                </div>
+                                <NavLink href="javascript:void(0);" className="widget-heading"
+                                    style = {{
+                                        padding:0
+                                    }}
+                                >
+                                    Cadastre-se!
+                                </NavLink>
+                                <NavLink href="javascript:void(0);" className="widget-subheading"
+                                    style = {{
+                                        padding:0,
+                                        fontWeight: 'normal'
+                                    }}
+                                >
+                                    Login
+                                </NavLink>
                             </div>
 
                             <div className="widget-content-right header-user-info ml-3">

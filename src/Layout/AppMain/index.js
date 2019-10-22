@@ -1,55 +1,46 @@
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
-import React, {Suspense, lazy, Fragment} from 'react';
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
+import React, {Suspense, lazy, Fragment} from 'react'
 
 import {
     ToastContainer,
-} from 'react-toastify';
+} from 'react-toastify'
 
-const Dashboards = lazy(() => import('../../DemoPages/Dashboards'));
+const Dashboards = lazy(() => import('../../DemoPages/Dashboards'))
+const ShopItem = lazy(() => import('../../DemoPages/ShopItem'))
 
-const Widgets = lazy(() => import('../../DemoPages/Widgets'));
-//const Elements = lazy(() => import('../../DemoPages/Elements'));
-//const Components = lazy(() => import('../../DemoPages/Components'));
-//const Forms = lazy(() => import('../../DemoPages/Forms'));
-//const Tables = lazy(() => import('../../DemoPages/Tables'));
+const Widgets = lazy(() => import('../../DemoPages/Widgets'))
 
 const AppMain = () => {
 
     return (
         <Fragment>
 
-            {/* Dashboard Widgets */}
-
             <Suspense fallback={
                 <div className="loader-container">
                     <div className="loader-container-inner">
                         <h6 className="mt-3">
-                            Please wait while we load all the Dashboard Widgets examples
-                            <small>Because this is a demonstration we load at once all the Dashboard Widgets examples. This wouldn't happen in a real live app!</small>
+                            Aguarde...
                         </h6>
                     </div>
                 </div>
             }>
-                <Route path="/widgets" component={Widgets}/>
+                <Route path="/shop" component={Dashboards}/>
             </Suspense>
 
-            {/* Dashboards */}
-
             <Suspense fallback={
                 <div className="loader-container">
                     <div className="loader-container-inner">
                         <h6 className="mt-3">
-                            Please wait while we load all the Dashboards examples
-                            <small>Because this is a demonstration, we load at once all the Dashboards examples. This wouldn't happen in a real live app!</small>
+                            Aguarde...
                         </h6>
                     </div>
                 </div>
             }>
-                <Route path="/dashboards" component={Dashboards}/>
+                <Route path="/shopitem" component={ShopItem}/>
             </Suspense>
 
             <Route exact path="/" render={() => (
-                <Redirect to="/dashboards/basic"/>
+                <Redirect to="/shop"/>
             )}/>
             <ToastContainer/>
         </Fragment>

@@ -1,14 +1,16 @@
 import React, {Fragment} from 'react';
+import {connect} from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {
-    Row, Col,
-    Card, CardBody,
-    CardTitle
+    Row, Card
 } from 'reactstrap';
+import Galery from '../Galery/Galery';
+import {Link} from 'react-router-dom';
 
 import ColorSwatches from './ColorSolids';
 import ColorGradients from './ColorGradients';
 import TextColor from './TextColor';
+import AppFooter from '../../../../../Layout/AppFooter/';
 
 import bg1 from '../../../../../assets/utils/images/sidebar/abstract1.jpg';
 import bg2 from '../../../../../assets/utils/images/sidebar/abstract2.jpg';
@@ -26,6 +28,89 @@ import bg13 from '../../../../../assets/utils/images/sidebar/city3.jpg';
 import bg14 from '../../../../../assets/utils/images/sidebar/city4.jpg';
 import bg15 from '../../../../../assets/utils/images/sidebar/city5.jpg';
 
+const Produtos = [{
+    Id: 1,
+    Nome: 'Shampoo',
+    Detalhe: 'Detalhe',
+    Imagem: bg1,
+    Tamanho: 'Tamanho',
+    Dimensao: null,
+    Cor: 'Cor',
+    Preco: 'Preço',
+    Desconto: 'Desconto'
+}, {
+    Id: 2,
+    Nome: 'Nome',
+    Detalhe: 'Detalhe',
+    Imagem: bg1,
+    Tamanho: 'Tamanho',
+    Dimensao: 'null',
+    Cor: 'Cor',
+    Preco: 'Preço',
+    Desconto: 'Desconto'
+}, {
+    Id: 3,
+    Nome: 'coiso',
+    Detalhe: 'Detalhe',
+    Imagem: bg1,
+    Tamanho: 'Tamanho',
+    Dimensao: 'null',
+    Cor: 'Cor',
+    Preco: 'Preço',
+    Desconto: 'Desconto'
+}, {
+    Id: 4,
+    Nome: 'sabão',
+    Detalhe: 'Detalhe',
+    Imagem: bg1,
+    Tamanho: 'Tamanho',
+    Dimensao: 'null',
+    Cor: 'Cor',
+    Preco: 'Preço',
+    Desconto: 'Desconto'
+}, {
+    Id: 5,
+    Nome: 'sabonete',
+    Detalhe: 'Detalhe',
+    Imagem: bg1,
+    Tamanho: 'Tamanho',
+    Dimensao: 'null',
+    Cor: 'Cor',
+    Preco: 'Preço',
+    Desconto: 'Desconto'
+}, {
+    Id: 6,
+    Nome: 'camisa',
+    Detalhe: 'Detalhe',
+    Imagem: bg1,
+    Tamanho: 'Tamanho',
+    Dimensao: 'null',
+    Cor: 'Cor',
+    Preco: 'Preço',
+    Desconto: 'Desconto'
+}, {
+    Id: 7,
+    Nome: 'bone',
+    Detalhe: 'Detalhe',
+    Imagem: bg1,
+    Tamanho: 'Tamanho',
+    Dimensao: 'null',
+    Cor: 'Cor',
+    Preco: 'Preço',
+    Desconto: 'Desconto'
+}, {
+    Id: 8,
+    Nome: 'bandana',
+    Detalhe: 'Detalhe',
+    Imagem: bg1,
+    Tamanho: 'Tamanho',
+    Dimensao: 'null',
+    Cor: 'Cor',
+    Preco: 'Preço',
+    Desconto: 'Desconto'
+}];
+
+
 const UtilitiesColors = (props) => {
     return (
         <Fragment>
@@ -36,158 +121,31 @@ const UtilitiesColors = (props) => {
                 transitionAppearTimeout={0}
                 transitionEnter={false}
                 transitionLeave={false}>
-                <Row>
-                   
-                    <Col md="12">
-                        <Card className="main-card mb-3">
-                            <CardBody>
-                                <CardTitle>Fotinhos dos dogs</CardTitle>
-                                <Row>
-                                    <Col md="3">
-                                        <div className="demo-image-bg"
-                                             style={{
-                                                 backgroundImage: 'url(' + bg1 + ')',
-                                                 backgroundSize: 'cover',
-                                                 backgroundPosition: 'center'
-                                             }}
-                                        />
-                                    </Col>
-                                    <Col md="3">
-                                        <div className="demo-image-bg"
-                                             style={{
-                                                 backgroundImage: 'url(' + bg2 + ')',
-                                                 backgroundSize: 'cover',
-                                                 backgroundPosition: 'center'
-                                             }}
-                                        />
-                                    </Col>
-                                    <Col md="3">
-                                        <div className="demo-image-bg"
-                                             style={{
-                                                 backgroundImage: 'url(' + bg3 + ')',
-                                                 backgroundSize: 'cover',
-                                                 backgroundPosition: 'center'
-                                             }}
-                                        />
-                                    </Col>
-                                    <Col md="3">
-                                        <div className="demo-image-bg"
-                                             style={{
-                                                 backgroundImage: 'url(' + bg4 + ')',
-                                                 backgroundSize: 'cover',
-                                                 backgroundPosition: 'center'
-                                             }}
-                                        />
-                                    </Col>
-                                    <Col md="3">
-                                        <div className="demo-image-bg"
-                                             style={{
-                                                 backgroundImage: 'url(' + bg5 + ')',
-                                                 backgroundSize: 'cover',
-                                                 backgroundPosition: 'center'
-                                             }}
-                                        />
-                                    </Col>
-                                    <Col md="3">
-                                        <div className="demo-image-bg"
-                                             style={{
-                                                 backgroundImage: 'url(' + bg6 + ')',
-                                                 backgroundSize: 'cover',
-                                                 backgroundPosition: 'center'
-                                             }}
-                                        />
-                                    </Col>
-                                    <Col md="3">
-                                        <div className="demo-image-bg"
-                                             style={{
-                                                 backgroundImage: 'url(' + bg7 + ')',
-                                                 backgroundSize: 'cover',
-                                                 backgroundPosition: 'center'
-                                             }}
-                                        />
-                                    </Col>
-                                    <Col md="3">
-                                        <div className="demo-image-bg"
-                                             style={{
-                                                 backgroundImage: 'url(' + bg8 + ')',
-                                                 backgroundSize: 'cover',
-                                                 backgroundPosition: 'center'
-                                             }}
-                                        />
-                                    </Col>
-                                    <Col md="3">
-                                        <div className="demo-image-bg"
-                                             style={{
-                                                 backgroundImage: 'url(' + bg9 + ')',
-                                                 backgroundSize: 'cover',
-                                                 backgroundPosition: 'center'
-                                             }}
-                                        />
-                                    </Col>
-                                    <Col md="3">
-                                        <div className="demo-image-bg"
-                                             style={{
-                                                 backgroundImage: 'url(' + bg10 + ')',
-                                                 backgroundSize: 'cover',
-                                                 backgroundPosition: 'center'
-                                             }}
-                                        />
-                                    </Col>
-                                    <Col md="3">
-                                        <div className="demo-image-bg"
-                                             style={{
-                                                 backgroundImage: 'url(' + bg11 + ')',
-                                                 backgroundSize: 'cover',
-                                                 backgroundPosition: 'center'
-                                             }}
-                                        />
-                                    </Col>
-                                    <Col md="3">
-                                        <div className="demo-image-bg"
-                                             style={{
-                                                 backgroundImage: 'url(' + bg12 + ')',
-                                                 backgroundSize: 'cover',
-                                                 backgroundPosition: 'center'
-                                             }}
-                                        />
-                                    </Col>
-                                    <Col md="3">
-                                        <div className="demo-image-bg"
-                                             style={{
-                                                 backgroundImage: 'url(' + bg13 + ')',
-                                                 backgroundSize: 'cover',
-                                                 backgroundPosition: 'center'
-                                             }}
-                                        />
-                                    </Col>
-                                    <Col md="3">
-                                        <div className="demo-image-bg"
-                                             style={{
-                                                 backgroundImage: 'url(' + bg14 + ')',
-                                                 backgroundSize: 'cover',
-                                                 backgroundPosition: 'center'
-                                             }}
-                                        />
-                                    </Col>
-                                    <Col md="3">
-                                        <div className="demo-image-bg"
-                                             style={{
-                                                 backgroundImage: 'url(' + bg15 + ')',
-                                                 backgroundSize: 'cover',
-                                                 backgroundPosition: 'center'
-                                             }}
-                                        />
-                                    </Col>
-                                </Row>
+                <Row> 
+                    {Produtos.length === 0 && (
+                        <div>teste</div>
+                    )}
 
-
-                            </CardBody>
-                        </Card>
-                    </Col>
+                    
+                      {Produtos.filter(item => item.Nome.toUpperCase().includes(props.valor.toUpperCase())).map((item, idx) => {
+                        return (
+                            
+                            <Galery 
+                                key = {item.Id}
+                                Produto = {item}    
+                            />
+                            
+                        )
+                    })}  
                 </Row>
             </ReactCSSTransitionGroup>
+            <AppFooter></AppFooter>
         </Fragment>
     );
 };
 
-export default UtilitiesColors;
+const mapStateToProps = state => ({
+    valor: state.BuscaReducer.valor
+})
+
+export default connect(mapStateToProps, null)(UtilitiesColors)
