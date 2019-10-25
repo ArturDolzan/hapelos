@@ -5,6 +5,7 @@ import {
     Row, Card
 } from 'reactstrap';
 import Galery from '../Galery/Galery';
+import axios from 'axios'
 import {Link} from 'react-router-dom';
 
 import ColorSwatches from './ColorSolids';
@@ -38,111 +39,67 @@ const Produtos = [{
     Cor: 'Cor',
     Preco: 'Preço',
     Desconto: 'Desconto'
-}, {
-    Id: 2,
-    Nome: 'Nome',
-    Detalhe: 'Detalhe',
-    Imagem: bg1,
-    Tamanho: 'Tamanho',
-    Dimensao: 'null',
-    Cor: 'Cor',
-    Preco: 'Preço',
-    Desconto: 'Desconto'
-}, {
-    Id: 3,
-    Nome: 'coiso',
-    Detalhe: 'Detalhe',
-    Imagem: bg1,
-    Tamanho: 'Tamanho',
-    Dimensao: 'null',
-    Cor: 'Cor',
-    Preco: 'Preço',
-    Desconto: 'Desconto'
-}, {
-    Id: 4,
-    Nome: 'sabão',
-    Detalhe: 'Detalhe',
-    Imagem: bg1,
-    Tamanho: 'Tamanho',
-    Dimensao: 'null',
-    Cor: 'Cor',
-    Preco: 'Preço',
-    Desconto: 'Desconto'
-}, {
-    Id: 5,
-    Nome: 'sabonete',
-    Detalhe: 'Detalhe',
-    Imagem: bg1,
-    Tamanho: 'Tamanho',
-    Dimensao: 'null',
-    Cor: 'Cor',
-    Preco: 'Preço',
-    Desconto: 'Desconto'
-}, {
-    Id: 6,
-    Nome: 'camisa',
-    Detalhe: 'Detalhe',
-    Imagem: bg1,
-    Tamanho: 'Tamanho',
-    Dimensao: 'null',
-    Cor: 'Cor',
-    Preco: 'Preço',
-    Desconto: 'Desconto'
-}, {
-    Id: 7,
-    Nome: 'bone',
-    Detalhe: 'Detalhe',
-    Imagem: bg1,
-    Tamanho: 'Tamanho',
-    Dimensao: 'null',
-    Cor: 'Cor',
-    Preco: 'Preço',
-    Desconto: 'Desconto'
-}, {
-    Id: 8,
-    Nome: 'bandana',
-    Detalhe: 'Detalhe',
-    Imagem: bg1,
-    Tamanho: 'Tamanho',
-    Dimensao: 'null',
-    Cor: 'Cor',
-    Preco: 'Preço',
-    Desconto: 'Desconto'
 }];
 
+class UtilitiesColors extends React.Component {
 
-const UtilitiesColors = (props) => {
-    return (
-        <Fragment>
-            <ReactCSSTransitionGroup
-                component="div"
-                transitionName="TabsAnimation"
-                transitionAppear={true}
-                transitionAppearTimeout={0}
-                transitionEnter={false}
-                transitionLeave={false}>
-                <Row> 
-                    {Produtos.length === 0 && (
-                        <div>teste</div>
-                    )}
+    constructor(props){
+        super(props)
 
-                    
-                      {Produtos.filter(item => item.Nome.toUpperCase().includes(props.valor.toUpperCase())).map((item, idx) => {
-                        return (
-                            
-                            <Galery 
-                                key = {item.Id}
-                                Produto = {item}    
-                            />
-                            
-                        )
-                    })}  
-                </Row>
-            </ReactCSSTransitionGroup>
-            <AppFooter></AppFooter>
-        </Fragment>
-    );
-};
+        this.state = {
+            produtos: [
+
+            ]
+        }
+    }
+
+    componentDidMount() {
+        axios.get('https://www.infisio.com.br/apihapelos/produtos/')
+        .then(dados => {
+            
+            this.setState({
+                produtos: dados.data
+            })
+        })
+        .catch(error => {
+            alert(`Erro ao requisitar lista de produtos. Erro: ${error}`)
+        })
+    }
+
+    render(){
+
+        return (
+            <Fragment>
+                <ReactCSSTransitionGroup
+                    component="div"
+                    transitionName="TabsAnimation"
+                    transitionAppear={true}
+                    transitionAppearTimeout={0}
+                    transitionEnter={false}
+                    transitionLeave={false}>
+                    <Row> 
+                        {this.state.produtos.length === 0 && (
+                            <div>Sem Produtos</div>
+                        )}
+
+                        
+                        {this.state.produtos.filter(item => item.nome.toUpperCase().includes(this.props.valor.toUpperCase())).map((item, idx) => {
+                            return (
+                                
+                                <Galery 
+                                    key = {item.id}
+                                    Produto = {item}    
+                                />
+                                
+                            )
+                        })}  
+                    </Row>
+                </ReactCSSTransitionGroup>
+                <AppFooter></AppFooter>
+            </Fragment>
+        )
+    }
+}
 
 const mapStateToProps = state => ({
     valor: state.BuscaReducer.valor

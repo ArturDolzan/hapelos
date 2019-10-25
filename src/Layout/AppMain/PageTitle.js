@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import cx from 'classnames';
+import {Link} from 'react-router-dom'
 
 import TitleComponent2 from './PageTitleExamples/Variation2'
 
@@ -34,19 +35,19 @@ class PageTitle extends Component {
                         </div>
                     </div> */}
                     <div className="page-title-actions">
-                    <div id="notif" style={{
-                                backgroundColor: "#f00",
-                                width: "10px",
-                                height: "10px",
-                                borderRadius: "10px",
-                                position: "absolute"
-                            }}></div>
-                        <div
-                            className={cx("page-title-icon", {'d-none': !enablePageTitleIcon})}>
-                            <i className="pe-7s-cart"/>
-                            
-                        </div>
-                        
+
+                        <Link to={'/carrinho'}>                    
+                            <div id="notif" style={{
+                                    backgroundColor: "#f00",
+                                    width: "10px",
+                                    height: "10px",
+                                    borderRadius: "10px",
+                                    position: "absolute"
+                                }}></div>
+                            <div className={cx("page-title-icon", {'d-none': !enablePageTitleIcon})}>
+                                <i className="pe-7s-cart"/>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>
