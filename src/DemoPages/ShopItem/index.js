@@ -7,6 +7,8 @@ import {
 } from 'reactstrap'
 import PageTitle from 'Layout/AppMain/PageTitle';
 import bg1 from '../../assets/utils/images/sidebar/abstract1.jpg';
+import {withRouter} from 'react-router-dom'
+import axios from 'axios'
 
 // Layout
 
@@ -28,9 +30,28 @@ const Produtos = {
 
 class ShopItem extends React.Component{
 
+    constructor(props){
+        super(props)
+
+        this.state = {
+            produto: {
+                id: this.props.location.query.id
+            }
+        }
+    }
+
     componentDidMount() {
 
-        //IMplementar chamada no backend para carregar o item passando o ID que vem por parametro
+        axios.get(`https://www.infisio.com.br/apihapelos/produtos/recuperarPorId/${this.state.produto.id}`)
+        .then(dados => {
+            
+            this.setState({
+                produto: dados.data[0]
+            })
+        })
+        .catch(error => {
+            alert(`Erro ao requisitar produto. Erro: ${error}`)
+        })
     }
 
     render(){
@@ -56,7 +77,7 @@ class ShopItem extends React.Component{
                                 <Col md="5" className="itemDetallhe">
                                     <div className="demo-image-bg" 
                                         style = {{
-                                            backgroundImage: 'url(' + Produtos.Imagem + ')',
+                                            backgroundImage: 'url(' + this.state.produto.Imagem + ')',
                                             width: '100%',
                                             height: '100%'
                                         }}
@@ -67,23 +88,23 @@ class ShopItem extends React.Component{
                                         {/* {JSON.parse(props.Produto.Nome)} */}
                                     </h1>
                                     <ul className="itemDetalheLista">
-                                        {Produtos.Tamanho && (
+                                        {this.state.produto.tamanho && (
                                             <li><b>Tamanho: </b>
-                                                {Produtos.Tamanho}
+                                                {this.state.produto.tamanho}
                                             </li>
                                         )}
-                                        {Produtos.Dimensao && (
+                                        {this.state.produto.Dimensao && (
                                             <li><b>Dimensão: </b>
-                                                {Produtos.Dimensao}
+                                                {this.state.produto.Dimensao}
                                             </li>
                                         )}
-                                        {Produtos.Cor && (
+                                        {this.state.produto.Cor && (
                                             <li><b>Cor: </b>
-                                                {Produtos.Cor}
+                                                {this.state.produto.Cor}
                                             </li>
                                         )}
                                         <li><b>Preço: </b>
-                                            {Produtos.Preco}
+                                            {this.state.produto.Preco}
                                         </li>
                                     </ul>
         
@@ -102,4 +123,4 @@ class ShopItem extends React.Component{
     }
 } 
 
-export default ShopItem;
+export default withRouter(ShopItem);

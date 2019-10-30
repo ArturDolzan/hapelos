@@ -7,6 +7,7 @@ import {
 import Galery from '../Galery/Galery';
 import axios from 'axios'
 import {Link} from 'react-router-dom';
+import {addItemCarrinho, remItemCarrinho} from '../../../../../actions/CarrinhoAction'
 
 import ColorSwatches from './ColorSolids';
 import ColorGradients from './ColorGradients';
@@ -66,6 +67,11 @@ class UtilitiesColors extends React.Component {
         })
     }
 
+    clickCarrinho(item) {
+
+        this.props.addItemCarrinho(item)
+    }
+
     render(){
 
         return (
@@ -88,7 +94,13 @@ class UtilitiesColors extends React.Component {
                                 
                                 <Galery 
                                     key = {item.id}
-                                    Produto = {item}    
+                                    Produto = {item}  
+                                    onClickCarrinho = {(item) => 
+                                        this.clickCarrinho(item)
+                                    }  
+                                    // onClickCarrinho = {(item) => 
+                                    //     this.clickCarrinho(item)
+                                    // }  
                                 />
                                 
                             )
@@ -105,4 +117,11 @@ const mapStateToProps = state => ({
     valor: state.BuscaReducer.valor
 })
 
-export default connect(mapStateToProps, null)(UtilitiesColors)
+const mapDispatchToProps = dispatch => {
+    return {
+        addItemCarrinho: (item) => { dispatch(addItemCarrinho(item)) },
+        // remItemCarrinho: (item) => { dispatch(remItemCarrinho(item)) },
+    };
+}
+ 
+export default connect(mapStateToProps, mapDispatchToProps)(UtilitiesColors)

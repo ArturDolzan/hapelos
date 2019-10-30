@@ -7,6 +7,7 @@ import {
 
 const Dashboards = lazy(() => import('../../DemoPages/Dashboards'))
 const ShopItem = lazy(() => import('../../DemoPages/ShopItem'))
+const Carrinho = lazy(() => import('../../DemoPages/Carrinho'))
 
 const Widgets = lazy(() => import('../../DemoPages/Widgets'))
 
@@ -38,6 +39,19 @@ const AppMain = () => {
             }>
                 <Route path="/shopitem" component={ShopItem}/>
             </Suspense>
+
+            <Suspense fallback={
+                <div className="loader-container">
+                    <div className="loader-container-inner">
+                        <h6 className="mt-3">
+                            Empurrando o carrinho...
+                        </h6>
+                    </div>
+                </div>
+            }>
+                <Route path="/carrinho" component={Carrinho}/>
+            </Suspense>
+
 
             <Route exact path="/" render={() => (
                 <Redirect to="/shop"/>
