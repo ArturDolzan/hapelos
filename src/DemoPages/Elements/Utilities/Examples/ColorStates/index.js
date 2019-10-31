@@ -78,6 +78,7 @@ class UtilitiesColors extends React.Component {
             <Fragment>
                 <ReactCSSTransitionGroup
                     component="div"
+                    className="container"
                     transitionName="TabsAnimation"
                     transitionAppear={true}
                     transitionAppearTimeout={0}

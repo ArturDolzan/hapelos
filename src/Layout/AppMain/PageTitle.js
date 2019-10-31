@@ -1,9 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
-import cx from 'classnames';
 import {Link} from 'react-router-dom'
-
-import TitleComponent2 from './PageTitleExamples/Variation2'
 
 class PageTitle extends Component {
     renderQtdeCarrinho(){
@@ -13,12 +10,11 @@ class PageTitle extends Component {
         this.props.carrinho.map((item, idx) => {
             qtde = qtde + item.qtde
         })
-  
-        return (
-            <Fragment>
-                {qtde}
-            </Fragment>
-        )
+        
+        if (qtde) 
+            return <Fragment><span className="badge badge-pill">{qtde}</span></Fragment>
+        else
+            return ''
     }
  
     render() {
@@ -32,33 +28,10 @@ class PageTitle extends Component {
         } = this.props;
 
         return (
-
-            <div className="app-page-title">
-                <div className="page-title-wrapper">
-                    {/* <div className="page-title-heading">
-                    <div
-                            className={cx("page-title-icon", {'d-none': !enablePageTitleIcon})}>
-                            <i className={icon}/>
-                        </div>
-                        <div>
-                            {heading}
-                            <div
-                                className={cx("page-title-subheading", {'d-none': !enablePageTitleSubheading})}>
-                                {subheading}
-                            </div>
-                        </div>
-                    </div> */}
-                    <div className="page-title-actions">
-
-                        <Link to={'/carrinho'}>             
-                            <div className={cx("page-title-icon", {'d-none': !enablePageTitleIcon})}>
-                                {this.renderQtdeCarrinho()}
-                                <i className="pe-7s-cart"/>
-                            </div>
-                        </Link>
-                    </div>
-                </div>
-            </div>
+            <Link to={'/carrinho'} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm">
+                <i className="pe-7s-cart btn-icon-wrapper font-size-xlg"> </i>
+                {this.renderQtdeCarrinho()}
+            </Link>
         );
     }
 }

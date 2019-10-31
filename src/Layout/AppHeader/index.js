@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import HeaderLogo from '../AppLogo';
+import PageTitle from '../AppMain/PageTitle';
 
 import SearchBox from './Components/SearchBox';
 import UserBox from './Components/UserBox';
@@ -38,6 +39,7 @@ class Header extends React.Component {
                             <SearchBox/>
                         </div>
                         <div className="app-header-right">
+                            <PageTitle/>
                             <UserBox/>
                         </div>
                     </div>
