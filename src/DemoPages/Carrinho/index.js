@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react'
 import {connect} from 'react-redux'
+import { Link } from 'react-router-dom'
 import {addItemCarrinho, remItemCarrinho} from '../../actions/CarrinhoAction'
 
 import {
@@ -81,7 +82,11 @@ const Carrinho = (props) => {
                         <Container className="lista-carrinho">
                             
                             {renderItensCarrinho(props)}
-                           
+
+                            <Link className="linkBaixo sem-underline" to='/confirmacao'>
+                                <Button className="mb-2 mr-2 card-cart-button" color="info">Finalizar compra</Button>
+                            </Link>
+                            
                          </Container>
                     </div>
                 </div>

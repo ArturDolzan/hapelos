@@ -8,6 +8,7 @@ import {
 const Dashboards = lazy(() => import('../../DemoPages/Dashboards'))
 const ShopItem = lazy(() => import('../../DemoPages/ShopItem'))
 const Carrinho = lazy(() => import('../../DemoPages/Carrinho'))
+const Login = lazy(() => import('../../DemoPages/Login'))
 
 const Widgets = lazy(() => import('../../DemoPages/Widgets'))
 
@@ -50,6 +51,18 @@ const AppMain = () => {
                 </div>
             }>
                 <Route path="/carrinho" component={Carrinho}/>
+            </Suspense>
+
+            <Suspense fallback={
+                <div className="loader-container">
+                    <div className="loader-container-inner">
+                        <h6 className="mt-3">
+                            Carregando...
+                        </h6>
+                    </div>
+                </div>
+            }>
+                <Route path="/confirmacao" component={Login}/>
             </Suspense>
 
 

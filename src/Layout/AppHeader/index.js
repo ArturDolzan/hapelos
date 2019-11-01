@@ -40,7 +40,6 @@ class Header extends React.Component {
                         </div>
                         <div className="app-header-right">
                             <PageTitle/>
-                            <UserBox/>
                         </div>
                     </div>
                 </ReactCSSTransitionGroup>
