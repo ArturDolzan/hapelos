@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react'
 import {connect} from 'react-redux'
+import {addItemCarrinho, remItemCarrinho} from '../../actions/CarrinhoAction'
 
 import {
     Col, Row, Container,
@@ -19,32 +20,36 @@ const renderItensCarrinho = (props) => {
     return (
         <Fragment>
             {props.carrinho.map((item, idx) => {
+                
                 return (
-                    <Col md="12" className="item-carrinho" key={item.id}>
-                        <Container>  
-                            <Row>
-                                <Col sm="2">
-                                
-                                    <div className="card-item-carrinho">
-                                        <img src={`data:image/jpeg;base64,${item.foto}`}/>
-                                    </div>
+                  
+                    <Fragment key={item.id}>
+                        <Row className="item-carrinho" >
+                            <Col sm="2">
+                            
+                                <div className="card-item-carrinho">
+                                    <img src={`data:image/jpeg;base64,${item.foto}`}/>
+                                </div>
 
-                                </Col>
-                                <Col sm="8">
-                                    <CardTitle>
-                                        {item.nome}
-                                    </CardTitle>
-                                </Col>
-                                <Col sm="1">
-                                    <Button className="mb-2 mr-2 card-cart-button plus" color="info" onClick={() => this.props.onClickCarrinho(this.props.Produto)}>+</Button>
-                                </Col>
-                                <Col sm="1">
-                                    <Button className="mb-2 mr-2 card-cart-button minus" color="info" onClick={() => this.props.onClickCarrinho(this.props.Produto)}>-</Button>
-                                </Col>
-                            </Row> 
-                        </Container>
+                            </Col>
+                            <Col sm="7">
+                                <CardTitle>
+                                    {item.nome}
+                                </CardTitle>
+                            </Col>
+                            <Col sm="1">
+                                <Button className="mb-2 mr-2 card-cart-button" color="info" onClick={() => props.addItemCarrinho(item)}>+</Button>
+                            </Col>
+                            <Col sm="1">
+                                <Button className="mb-2 mr-2 card-cart-button" color="info">{item.qtde}</Button>
+                            </Col>
+                            <Col sm="1">
+                                <Button className="mb-2 mr-2 card-cart-button" color="info" onClick={() => props.remItemCarrinho(item)}>-</Button>
+                            </Col>
+                           
+                        </Row> 
                         <hr></hr>
-                    </Col>
+                    </Fragment>
                 )
             })}
         </Fragment>
@@ -74,9 +79,9 @@ const Carrinho = (props) => {
                             </div>
                         </div>
                         <Container className="lista-carrinho">
-                            <Row>
-                                {renderItensCarrinho(props)}
-                            </Row>
+                            
+                            {renderItensCarrinho(props)}
+                           
                          </Container>
                     </div>
                 </div>
