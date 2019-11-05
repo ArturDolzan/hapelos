@@ -7,7 +7,7 @@ import {
     Col, Row, Container,
     Card, CardBody,
     CardTitle, CardSubtitle,
-    Button, Progress
+    Button, Progress, Label
 } from 'reactstrap'
  
 import AppHeader from '../../Layout/AppHeader/'
@@ -42,7 +42,7 @@ const renderItensCarrinho = (props) => {
                                 <Button className="mb-2 mr-2 card-cart-button" color="info" onClick={() => props.addItemCarrinho(item)}>+</Button>
                             </Col>
                             <Col sm="1">
-                                <Button className="mb-2 mr-2 card-cart-button" color="info">{item.qtde}</Button>
+                                <Label style={{marginTop: '25px'}} color="info">{item.qtde}</Label>
                             </Col>
                             <Col sm="1">
                                 <Button className="mb-2 mr-2 card-cart-button" color="info" onClick={() => props.remItemCarrinho(item)}>-</Button>
@@ -84,7 +84,7 @@ const Carrinho = (props) => {
                             {renderItensCarrinho(props)}
 
                             <Link className="linkBaixo sem-underline" to='/confirmacao'>
-                                <Button className="mb-2 mr-2 card-cart-button" color="info">Finalizar compra</Button>
+                                <Button className="mb-2 mr-2 card-cart-button" color="info" disabled={props.carrinho.length === 0}>Finalizar compra</Button>
                             </Link>
                             
                          </Container>

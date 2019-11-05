@@ -6,6 +6,7 @@ import {
     Button, Progress
 } from 'reactstrap'
 import {Link, withRouter} from 'react-router-dom'
+import Currency from 'react-currency-formatter'
 
 
 class Galery extends React.Component {
@@ -36,10 +37,16 @@ class Galery extends React.Component {
                             </Link>
                             
                             <div className="card-preco">
-                                {this.props.Produto.preco}
-                            </div>
+                                
+                                <Currency
+                                    quantity={parseFloat(this.props.Produto.preco)}
+                                    currency="BRL"
+                                />
 
-                            <Button className="mb-2 mr-2 card-cart-button linkCima" color="info" onClick={() => this.props.onClickCarrinho(this.props.Produto)}>+<i className="pe-7s-cart"/></Button>
+                            </div>
+                            <div >
+                                <Button className="mb-2 mr-2 card-cart-button linkCima" color="info" onClick={() => this.props.onClickCarrinho(this.props.Produto)}>+<i className="pe-7s-cart"/></Button>
+                            </div>
                         </CardBody>
                     </Card>
                 </Col>
