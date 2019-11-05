@@ -28,10 +28,16 @@ class PageTitle extends Component {
         } = this.props;
 
         return (
-            <Link to={'/carrinho'} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm">
-                <i className="pe-7s-cart btn-icon-wrapper font-size-xlg"> </i>
-                {this.renderQtdeCarrinho()}
-            </Link>
+            <Fragment>
+                <Link to={'/carrinho'} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm">
+                    <i className="pe-7s-cart btn-icon-wrapper font-size-xlg"> </i>
+                    {this.renderQtdeCarrinho()}
+                </Link>
+
+                <Link to={'/administrativo'} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm">
+                    <i className="pe-7s-settings btn-icon-wrapper font-size-xlg"> </i>
+                </Link>
+            </Fragment>
         );
     }
 }
