@@ -12380,11 +12380,9 @@ body {
 }
 .itemDetallhe h1{
   font-weight: bold;
-  margin-top:40px;
 }
 
 .itemDetalheLista{
-  margin-top:60px;
   list-style:none;
 }
 
@@ -12404,10 +12402,6 @@ body {
   background-color: #f66;
 }
 
-.item-carrinho .col-sm-4{
-  margin: 0!important;
-  padding: 0!important
-}
 .item-carrinho .card-title{
   margin-top: 5px;
 }

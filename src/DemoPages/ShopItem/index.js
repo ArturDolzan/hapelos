@@ -59,18 +59,17 @@ class ShopItem extends React.Component{
                 <AppHeader/>
                
                 <div className="app-main">
-                    <AppSidebar/>
                     
                     <div className="app-main__outer">
                         <div className="app-main__inner">
-                            <Row>
-                                <Col md="3" className="itemDetallhe">
+                            <Row style={{marginTop: '60px'}}>
+                                <Col md="4" className="itemDetallhe">
                                     
-                                        <img src={`data:image/jpeg;base64,${this.state.produto.foto}`} style={{maxWidth: '400px'}}/>
+                                        <img src={`data:image/jpeg;base64,${this.state.produto.foto}`} style={{width: '100%'}}/>
                                     
                                 </Col>
                                 
-                                <Col md="7" className="itemDetallhe">
+                                <Col md="8" className="itemDetallhe">
                                    
                                     <ul className="itemDetalheLista">
                                         {this.state.produto.nome && (
@@ -118,9 +117,10 @@ class ShopItem extends React.Component{
                                             </div>
 
                                         </li>
+                                        <li>
+                                            <Button className="mb-2 mr-2" color="info" onClick={() => this.onClickCarrinho(this.state.produto)}>+<i className="pe-7s-cart"/></Button>
+                                        </li>
                                     </ul>
-        
-                                    <Button className="mb-2 mr-2" color="info" onClick={() => this.onClickCarrinho(this.state.produto)}>+<i className="pe-7s-cart"/></Button>
                                 </Col>
                                 
                             </Row>
