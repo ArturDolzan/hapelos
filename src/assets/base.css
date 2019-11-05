@@ -12435,3 +12435,22 @@ body {
   font-weight: bold;
   font-size: 2rem;
 }
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.flex-container-foto-desc-carrinho {  
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.flex-container-direita {  
+  justify-content: flex-end;
+}
+
+.flex-container-direita-texto-qtde {  
+  padding-left: 15px;
+  font-weight: bold;
+}

@@ -15,7 +15,7 @@ import AppSidebar from '../../Layout/AppSidebar/'
 import AppFooter from '../../Layout/AppFooter/'
 import PageTitle from 'Layout/AppMain/PageTitle'
 
-const renderItensCarrinhoNovo = (props) => {
+const renderItensCarrinho = (props) => {
 
     return (
         <Fragment>
@@ -26,26 +26,27 @@ const renderItensCarrinhoNovo = (props) => {
                     return (
                         <ListGroupItem key={item.id}>
 
-                            <Row className="item-carrinho" >
-                                <Col sm="2">
+                            <Row className="flex-container" >
+
+                                <Col sm="2" className="flex-container-foto-desc-carrinho">
                                 
                                     <div className="card-item-carrinho">
                                         <img src={`data:image/jpeg;base64,${item.foto}`}/>
                                     </div>
 
                                 </Col>
-                                <Col sm="7">
+                                <Col sm="7" className="flex-container-foto-desc-carrinho">
                                     <CardTitle>
                                         {item.nome}
                                     </CardTitle>
                                 </Col>
-                                <Col sm="1">
+                                <Col sm="1" className="flex-container-direita">
                                     <Button className="mb-2 mr-2 card-cart-button" color="info" onClick={() => props.addItemCarrinho(item)}>+</Button>
                                 </Col>
-                                <Col sm="1">
+                                <Col sm="0.5" className="flex-container-direita flex-container-direita-texto-qtde">
                                     <Label style={{marginTop: '25px'}} color="info">{item.qtde}</Label>
                                 </Col>
-                                <Col sm="1">
+                                <Col sm="1" className="flex-container-direita">
                                     <Button className="mb-2 mr-2 card-cart-button" color="info" onClick={() => props.remItemCarrinho(item)}>-</Button>
                                 </Col>
                             
@@ -59,47 +60,6 @@ const renderItensCarrinhoNovo = (props) => {
 
         </Fragment>
     )
-}
- 
-const renderItensCarrinho = (props) => {
- 
-    return (
-        <Fragment>
-            {props.carrinho.map((item, idx) => {
-                
-                return (
-                  
-                    <Fragment key={item.id}>
-                        <Row className="item-carrinho" >
-                            <Col sm="2">
-                            
-                                <div className="card-item-carrinho">
-                                    <img src={`data:image/jpeg;base64,${item.foto}`}/>
-                                </div>
-
-                            </Col>
-                            <Col sm="7">
-                                <CardTitle>
-                                    {item.nome}
-                                </CardTitle>
-                            </Col>
-                            <Col sm="1">
-                                <Button className="mb-2 mr-2 card-cart-button" color="info" onClick={() => props.addItemCarrinho(item)}>+</Button>
-                            </Col>
-                            <Col sm="1">
-                                <Label style={{marginTop: '25px'}} color="info">{item.qtde}</Label>
-                            </Col>
-                            <Col sm="1">
-                                <Button className="mb-2 mr-2 card-cart-button" color="info" onClick={() => props.remItemCarrinho(item)}>-</Button>
-                            </Col>
-                           
-                        </Row> 
-                        <hr></hr>
-                    </Fragment>
-                )
-            })}
-        </Fragment>
-   )
 }
  
 const Carrinho = (props) => {
@@ -126,7 +86,7 @@ const Carrinho = (props) => {
                         </div>
                         <Container className="lista-carrinho">
                             
-                            {renderItensCarrinhoNovo(props)}
+                            {renderItensCarrinho(props)}
                             
                          </Container>
                     </div>
