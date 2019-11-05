@@ -12436,3 +12436,8 @@ body {
     max-width: 320px;
   }
 }
+
+.precoShopItem {
+  font-weight: bold;
+  font-size: 2rem;
+}

@@ -1,14 +1,15 @@
-import React, {Fragment} from 'react';
+import React, {Fragment} from 'react'
+import {connect} from 'react-redux'
 import {
     Col, Row,
     Card, CardBody,
     CardTitle, CardSubtitle,
-    Button
+    Button, Label
 } from 'reactstrap'
 import PageTitle from 'Layout/AppMain/PageTitle';
-import bg1 from '../../assets/utils/images/sidebar/abstract1.jpg';
 import {withRouter} from 'react-router-dom'
 import axios from 'axios'
+import {addItemCarrinho, remItemCarrinho} from '../../actions/CarrinhoAction'
 
 // Layout
 
@@ -16,26 +17,18 @@ import AppHeader from '../../Layout/AppHeader/';
 import AppSidebar from '../../Layout/AppSidebar/';
 import AppFooter from '../../Layout/AppFooter/';
 
-const Produtos = {
-    Id: 1,
-    Nome: 'Shampoo',
-    Detalhe: 'Detalhe',
-    Imagem: bg1,
-    Tamanho: 'Tamanho',
-    Dimensao: null,
-    Cor: 'Cor',
-    Preco: 'Preço',
-    Desconto: 'Desconto'
-};
+import Currency from 'react-currency-formatter'
 
 class ShopItem extends React.Component{
 
     constructor(props){
         super(props)
 
+        const { router, params, location, routes, history } = this.props
+
         this.state = {
             produto: {
-                id: this.props.location.query.id
+                id: location.query.id
             }
         }
     }
@@ -54,68 +47,88 @@ class ShopItem extends React.Component{
         })
     }
 
+    onClickCarrinho(item){
+        this.props.addItemCarrinho(item)
+    }
+
     render(){
 
         return (
             <Fragment>
                 
                 <AppHeader/>
-                <PageTitle
-                    style={{
-                        marginTop: "60px!important"
-                    }}
-                    heading="Filtros"
-                    subheading=""
-                    icon="pe-7s-filter icon-gradient bg-deep-blue"
-                />
+               
                 <div className="app-main">
                     <AppSidebar/>
                     
                     <div className="app-main__outer">
                         <div className="app-main__inner">
                             <Row>
-                                <Col md="5" className="itemDetallhe">
-                                    <div className="demo-image-bg" 
-                                        style = {{
-                                            backgroundImage: 'url(' + this.state.produto.Imagem + ')',
-                                            width: '100%',
-                                            height: '100%'
-                                        }}
-                                    />
+                                <Col md="3" className="itemDetallhe">
+                                    
+                                        <img src={`data:image/jpeg;base64,${this.state.produto.foto}`} style={{maxWidth: '400px'}}/>
+                                    
                                 </Col>
-                                <Col md="5" className="itemDetallhe">
-                                    <h1>
-                                        {/* {JSON.parse(props.Produto.Nome)} */}
-                                    </h1>
+                                
+                                <Col md="7" className="itemDetallhe">
+                                   
                                     <ul className="itemDetalheLista">
+                                        {this.state.produto.nome && (
+                                            <li><b>Nome </b>
+                                                <div>
+                                                    {this.state.produto.nome}
+                                                </div>
+                                            </li>
+                                        )}
+
+                                        {this.state.produto.descricao && (
+                                            <li><b>Descrição </b>
+                                                <div>
+                                                    {this.state.produto.descricao}
+                                                </div>
+                                            </li>
+                                        )}
                                         {this.state.produto.tamanho && (
-                                            <li><b>Tamanho: </b>
-                                                {this.state.produto.tamanho}
+                                            <li><b>Tamanho </b>
+                                                <div>
+                                                    {this.state.produto.tamanho}
+                                                </div>
                                             </li>
                                         )}
-                                        {this.state.produto.Dimensao && (
-                                            <li><b>Dimensão: </b>
-                                                {this.state.produto.Dimensao}
+                                        {this.state.produto.dimensoes && (
+                                            <li><b>Dimensões </b>
+                                                <div>
+                                                    {this.state.produto.dimensoes}
+                                                </div>
                                             </li>
                                         )}
-                                        {this.state.produto.Cor && (
-                                            <li><b>Cor: </b>
-                                                {this.state.produto.Cor}
+                                        {this.state.produto.cor && (
+                                            <li><b>Cor </b>
+                                                <div>
+                                                    {this.state.produto.cor}
+                                                </div>
                                             </li>
                                         )}
-                                        <li><b>Preço: </b>
-                                            {this.state.produto.Preco}
+                                        <li>
+                                            <div className="precoShopItem">
+                                                <Currency
+                                                    quantity={parseFloat(this.state.produto.preco)}
+                                                    currency="BRL"
+                                                />
+                                            </div>
+
                                         </li>
                                     </ul>
         
-                                    <Button className="mb-2 mr-2" color="success">Adicionar ao carrinho</Button>                            
-                                    <Button className="mb-2 mr-2" color="success">Comprar</Button>                            
+                                    <Button className="mb-2 mr-2" color="info" onClick={() => this.onClickCarrinho(this.state.produto)}>+<i className="pe-7s-cart"/></Button>
                                 </Col>
+                                
                             </Row>
+                            
+                            
                         </div>
                     </div>
         
-                   
                 </div>
                 <AppFooter></AppFooter>
             </Fragment>
@@ -123,4 +136,14 @@ class ShopItem extends React.Component{
     }
 } 
 
-export default withRouter(ShopItem);
+const mapStateToProps = state => ({
+    valor: state.BuscaReducer.valor
+})
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addItemCarrinho: (item) => { dispatch(addItemCarrinho(item)) },
+    };
+}
+ 
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ShopItem))
