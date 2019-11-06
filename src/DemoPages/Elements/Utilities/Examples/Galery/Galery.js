@@ -30,6 +30,7 @@ class Galery extends React.Component {
                             }}>
                                 <CardTitle>
                                     {this.props.Produto.nome}
+
                                 </CardTitle>
                                 <CardSubtitle className="sub-produto">
                                     {this.props.Produto.descricao}
@@ -44,10 +45,19 @@ class Galery extends React.Component {
                                 />
 
                             </div>
+
                             <div >
                                 <Button className="mb-2 mr-2 card-cart-button linkCima" color="info" onClick={() => this.props.onClickCarrinho(this.props.Produto)}>+<i className="pe-7s-cart"/></Button>
                             </div>
+
+                            {this.props.Auth && (
+                                <Fragment>                                            
+                                    <Button className="mb-2 mr-2 linkCima" color="warning" onClick={() => this.props.onClickRemoverProduto(this.props.Produto)}>+<i className="pe-7s-trash"/></Button>                                                    
+                                </Fragment>
+                            )}
+ 
                         </CardBody>
+
                     </Card>
                 </Col>
             </Fragment>

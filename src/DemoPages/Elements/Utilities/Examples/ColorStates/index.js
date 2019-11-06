@@ -15,34 +15,11 @@ import ColorSwatches from './ColorSolids';
 import ColorGradients from './ColorGradients';
 import TextColor from './TextColor';
 import AppFooter from '../../../../../Layout/AppFooter/';
+import {
+    toast,
+    Bounce
+} from 'react-toastify'
 
-import bg1 from '../../../../../assets/utils/images/sidebar/abstract1.jpg';
-import bg2 from '../../../../../assets/utils/images/sidebar/abstract2.jpg';
-import bg3 from '../../../../../assets/utils/images/sidebar/abstract3.jpg';
-import bg4 from '../../../../../assets/utils/images/sidebar/abstract4.jpg';
-import bg5 from '../../../../../assets/utils/images/sidebar/abstract5.jpg';
-import bg6 from '../../../../../assets/utils/images/sidebar/abstract6.jpg';
-import bg7 from '../../../../../assets/utils/images/sidebar/abstract7.jpg';
-import bg8 from '../../../../../assets/utils/images/sidebar/abstract8.jpg';
-import bg9 from '../../../../../assets/utils/images/sidebar/abstract9.jpg';
-import bg10 from '../../../../../assets/utils/images/sidebar/abstract10.jpg';
-import bg11 from '../../../../../assets/utils/images/sidebar/city1.jpg';
-import bg12 from '../../../../../assets/utils/images/sidebar/city2.jpg';
-import bg13 from '../../../../../assets/utils/images/sidebar/city3.jpg';
-import bg14 from '../../../../../assets/utils/images/sidebar/city4.jpg';
-import bg15 from '../../../../../assets/utils/images/sidebar/city5.jpg';
-
-const Produtos = [{
-    Id: 1,
-    Nome: 'Shampoo',
-    Detalhe: 'Detalhe',
-    Imagem: bg1,
-    Tamanho: 'Tamanho',
-    Dimensao: null,
-    Cor: 'Cor',
-    Preco: 'Preço',
-    Desconto: 'Desconto'
-}];
 
 const override = css`
     display: block;
@@ -63,8 +40,21 @@ class UtilitiesColors extends React.Component {
         }
     }
 
+    notify = (msg, sucesso) => this.toastId = toast(msg, {
+        transition: Bounce,
+        closeButton: true,
+        autoClose: 5000,
+        position: 'bottom-center',
+        type: sucesso? 'success' : 'error'
+    })
+
     componentDidMount() {
 
+        this.carregarProdutos()
+    }
+
+    carregarProdutos() {
+        
         this.setState({carregando: true, produtos: []})
 
         axios.get('https://www.infisio.com.br/apihapelos/produtos/')
@@ -77,13 +67,30 @@ class UtilitiesColors extends React.Component {
         })
         .catch(error => {
             this.setState({carregando: false})
-            alert(`Erro ao requisitar lista de produtos. Erro: ${error}`)
+
+            this.notify(`Erro ao requisitar lista de produtos. Erro: ${error}`, false)
         })
     }
 
     clickCarrinho(item) {
 
         this.props.addItemCarrinho(item)
+    }
+
+    clickRemoverProduto(item) {
+
+        axios.delete(`https://www.infisio.com.br/apihapelos/produtos/${item.id}`)
+        .then(_ => {
+            
+            this.carregarProdutos()
+
+            this.notify('Produto removido com sucesso!', true)
+
+        })
+        .catch(error => {
+            
+            this.notify(`Não foi possível remover. Falha: ${error}`, false)
+        })
     }
 
     render(){
@@ -125,9 +132,13 @@ class UtilitiesColors extends React.Component {
                                     
                                     <Galery 
                                         key = {item.id}
-                                        Produto = {item}  
+                                        Produto = {item}
+                                        Auth = {this.props.auth}  
                                         onClickCarrinho = {(item) => 
                                             this.clickCarrinho(item)
+                                        }
+                                        onClickRemoverProduto = {(item) => 
+                                            this.clickRemoverProduto(item)
                                         }  
                                         
                                     />
@@ -144,13 +155,13 @@ class UtilitiesColors extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    valor: state.BuscaReducer.valor
+    valor: state.BuscaReducer.valor,
+    auth: state.AuthReducer.auth
 })
 
 const mapDispatchToProps = dispatch => {
     return {
-        addItemCarrinho: (item) => { dispatch(addItemCarrinho(item)) },
-        // remItemCarrinho: (item) => { dispatch(remItemCarrinho(item)) },
+        addItemCarrinho: (item) => { dispatch(addItemCarrinho(item)) }
     };
 }
  

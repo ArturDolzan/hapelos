@@ -34,9 +34,26 @@ class PageTitle extends Component {
                     {this.renderQtdeCarrinho()}
                 </Link>
 
-                <Link to={'/administrativo'} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm">
-                    <i className="pe-7s-settings btn-icon-wrapper font-size-xlg"> </i>
-                </Link>
+                {!this.props.auth && (                                        
+                    <Fragment>
+                        
+                        <Link to={'/administrativo'} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm"> 
+                            <i className="pe-7s-settings btn-icon-wrapper font-size-xlg"> </i>                
+                        </Link>
+
+                    </Fragment>
+                )}
+
+                {this.props.auth && (                                        
+                    <Fragment>
+                        
+                        <Link to={'/administrativo'} className="linkVermelho mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm"> 
+                            <i className="pe-7s-settings btn-icon-wrapper font-size-xlg"> </i>                
+                        </Link>
+
+                    </Fragment>
+                )}
+
             </Fragment>
         );
     }
@@ -45,7 +62,8 @@ class PageTitle extends Component {
 const mapStateToProps = state => ({
     enablePageTitleIcon: state.ThemeOptions.enablePageTitleIcon,
     enablePageTitleSubheading: state.ThemeOptions.enablePageTitleSubheading,
-    carrinho: state.CarrinhoReducer.itensCarrinho
+    carrinho: state.CarrinhoReducer.itensCarrinho,
+    auth: state.AuthReducer.auth
 });
 
 const mapDispatchToProps = dispatch => ({});

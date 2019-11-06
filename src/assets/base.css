@@ -12402,6 +12402,15 @@ body {
   background-color: #f66;
 }
 
+.linkVermelho{
+  color:red;
+  margin-top: 10px;
+}.linkVermelho:hover{
+  color:red;
+}.linkVermelho span{
+  background-color: #f66;
+}
+
 .item-carrinho .card-title{
   margin-top: 5px;
 }
@@ -12428,6 +12437,17 @@ body {
   .Login form {
     margin: 0 auto;
     max-width: 320px;
+  }
+}
+
+@media all and (min-width: 480px) {
+  .Adm {
+    padding: 60px 0;
+  }
+
+  .Adm form {
+    margin: 0 auto;
+    max-width: 620px;
   }
 }
 
