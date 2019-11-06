@@ -21,7 +21,7 @@ class Administrativo extends React.Component {
 
         this.state = {
             email: "",
-            senha: "passwordm49m1234",
+            senha: "",
             nome: "",
             descricao: "",
             tamanho: "",
