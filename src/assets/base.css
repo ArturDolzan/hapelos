@@ -12474,3 +12474,9 @@ body {
   padding-left: 15px;
   font-weight: bold;
 }
+
+.button-excluir{
+  position: absolute;
+  top:160px;
+  left: 20px;
+}
