@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+﻿import React, {Fragment} from 'react'
 import {connect} from 'react-redux'
 import {
     Col, Row,
@@ -28,7 +28,9 @@ class ShopItem extends React.Component{
 
         this.state = {
             produto: {
-                id: location.query.id
+                id: location.query.id,
+		preco: 0,
+		foto: ""
             }
         }
     }
@@ -65,7 +67,9 @@ class ShopItem extends React.Component{
                             <Row style={{marginTop: '60px'}}>
                                 <Col md="4" className="itemDetallhe">
                                     
+				   {this.state.produto.foto && (
                                         <img src={`data:image/jpeg;base64,${this.state.produto.foto}`} style={{width: '100%'}}/>
+				    )}
                                     
                                 </Col>
                                 
@@ -108,7 +112,8 @@ class ShopItem extends React.Component{
                                                 </div>
                                             </li>
                                         )}
-                                        <li>
+					{this.state.produto.preco && (
+                                          <li>
                                             <div className="precoShopItem">
                                                 <Currency
                                                     quantity={parseFloat(this.state.produto.preco)}
@@ -116,7 +121,8 @@ class ShopItem extends React.Component{
                                                 />
                                             </div>
 
-                                        </li>
+                                          </li>
+					)}
                                         <li>
                                             <Button className="mb-2 mr-2" color="info" onClick={() => this.onClickCarrinho(this.state.produto)}>+<i className="pe-7s-cart"/></Button>
                                         </li>

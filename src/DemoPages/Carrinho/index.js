@@ -41,14 +41,15 @@ const renderItensCarrinho = (props) => {
                                     </CardTitle>
                                 </Col>
                                 <Col sm="1" className="flex-container-direita">
-                                    <Button className="mb-2 mr-2 card-cart-button" color="info" onClick={() => props.addItemCarrinho(item)}>+</Button>
+                                    <Button className="mb-2 mr-2 card-cart-button" color="info" onClick={() => props.remItemCarrinho(item)}>-</Button>
                                 </Col>
                                 <Col sm="0.5" className="flex-container-direita flex-container-direita-texto-qtde">
                                     <Label style={{marginTop: '25px'}} color="info">{item.qtde}</Label>
                                 </Col>
-                                <Col sm="1" className="flex-container-direita">
-                                    <Button className="mb-2 mr-2 card-cart-button" color="info" onClick={() => props.remItemCarrinho(item)}>-</Button>
+				<Col sm="1" className="flex-container-direita">
+                                    <Button className="mb-2 mr-2 card-cart-button" color="info" onClick={() => props.addItemCarrinho(item)}>+</Button>
                                 </Col>
+                                
                             
                             </Row> 
 
@@ -87,12 +88,17 @@ const Carrinho = (props) => {
                         <Container className="lista-carrinho">
                             
                             {renderItensCarrinho(props)}
+
+                           <div style={{alignSelf: 'center', marginTop: '30px'}}>
+                             <Link className="linkBaixo sem-underline" to='/confirmacao'>
+                                 <Button style={{position:'inherit'}} className="mb-2 mr-2 card-cart-button" color="info" disabled={props.carrinho.length === 0}>Finalizar compra</Button>
+                             </Link>
+      		           </div>
                             
-                         </Container>
+                        </Container>
+                       
                     </div>
-                    <Link className="linkBaixo sem-underline" to='/confirmacao'>
-                        <Button style={{position:'inherit', float:'right'}} className="mb-2 mr-2 card-cart-button" color="info" disabled={props.carrinho.length === 0}>Finalizar compra</Button>
-                    </Link>
+			
                 </div>
                     
             </div>
