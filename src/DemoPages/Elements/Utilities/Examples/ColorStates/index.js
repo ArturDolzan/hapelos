@@ -111,7 +111,7 @@ class UtilitiesColors extends React.Component {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center'
-                        }}><h2>Sem Produtos</h2></div>
+                        }}><h2>Sem produtos ☺</h2></div>
                     )}
                    
                     <div className='sweet-loading'>

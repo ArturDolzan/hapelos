@@ -124,8 +124,7 @@ class Administrativo extends React.Component {
     }
 
     validateNewItem() {
-        return this.state.nome.length > 0 && this.state.descricao.length > 0 && this.state.tamanho.length > 0 
-            && this.state.dimensoes.length > 0 && this.state.preco.length > 0 && this.state.cor.length > 0 && this.state.foto.length > 0
+        return this.state.nome.length > 0 && this.state.descricao.length > 0 && this.state.preco.length > 0 && this.state.foto.length > 0
     }
 
     handleSubmitNewItem = event => {
