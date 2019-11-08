@@ -19,6 +19,11 @@ import AppFooter from '../../Layout/AppFooter/';
 
 import Currency from 'react-currency-formatter'
 
+import {
+    toast,
+    Bounce
+} from 'react-toastify'
+
 class ShopItem extends React.Component{
 
     constructor(props){
@@ -35,6 +40,14 @@ class ShopItem extends React.Component{
         }
     }
 
+    notify = (msg, sucesso) => this.toastId = toast(msg, {
+        transition: Bounce,
+        closeButton: true,
+        autoClose: 3000,
+        position: 'bottom-center',
+        type: sucesso? 'success' : 'error'
+    })
+
     componentDidMount() {
 
         axios.get(`https://www.infisio.com.br/apihapelos/produtos/recuperarPorId/${this.state.produto.id}`)
@@ -50,6 +63,7 @@ class ShopItem extends React.Component{
     }
 
     onClickCarrinho(item){
+        this.notify(`${item.nome} adicionado(a) ao carrinho...`, true)
         this.props.addItemCarrinho(item)
     }
 
