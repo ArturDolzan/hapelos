@@ -13,14 +13,9 @@ export default class UtilitiesExamples extends React.Component {
 
         return (
             <Fragment>
-                {/* <PageTitle
-                    heading="Filtros"
-                    subheading=""
-                    icon="pe-7s-filter icon-gradient bg-deep-blue"
-                /> */}
-                {/* <UtilitiesAnimations/> */}
+                
                 <UtilitiesColors/>
-                {/* <UtilitiesHelpers/> */}
+                
             </Fragment>
         );
     }

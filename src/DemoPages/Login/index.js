@@ -4,6 +4,10 @@ import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap"
 import PageTitle from 'Layout/AppMain/PageTitle'
 import axios from 'axios'
 import {connect} from 'react-redux'
+import {
+    toast,
+    Bounce
+} from 'react-toastify'
 
 // Layout
 
@@ -22,6 +26,15 @@ class Login extends React.Component{
             telefone: ""
         }
     }
+
+    notify = (msg, sucesso, cbclose) => this.toastId = toast(msg, {
+        transition: Bounce,
+        closeButton: true,
+        autoClose: 3000,
+        position: 'bottom-center',
+        type: sucesso? 'success' : 'error',
+        onClose: () => {cbclose()}
+    })
 
      validateForm() {
          return this.state.email.length > 0 && this.state.nome.length > 0 && this.state.telefone.length > 0;
@@ -58,9 +71,10 @@ class Login extends React.Component{
         })
         .then(_ => {
             
-            alert('Compra finalizada com sucesso!')
+            this.notify(`Compra finalizada com sucesso! Por favor, verifique sua caixa de e-mail...`, true, () => {
+                this.props.history.push('/')
+            })
 
-            this.props.history.push('/')
         })
         .catch(error => {
             alert(`Erro ao finalizar compra. Erro: ${error}`)

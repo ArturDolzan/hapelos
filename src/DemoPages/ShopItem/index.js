@@ -29,7 +29,7 @@ class ShopItem extends React.Component{
         this.state = {
             produto: {
                 id: location.query.id,
-		preco: 0,
+		preco: null,
 		foto: ""
             }
         }
@@ -67,66 +67,58 @@ class ShopItem extends React.Component{
                             <Row style={{marginTop: '60px'}}>
                                 <Col md="4" className="itemDetallhe">
                                     
-				   {this.state.produto.foto && (
+				                    {this.state.produto.foto && (
                                         <img src={`data:image/jpeg;base64,${this.state.produto.foto}`} style={{width: '100%'}}/>
-				    )}
+				                    )}
                                     
                                 </Col>
                                 
                                 <Col md="8" className="itemDetallhe">
-                                   
-                                    <ul className="itemDetalheLista">
-                                        {this.state.produto.nome && (
-                                            <li><b>Nome </b>
-                                                <div>
-                                                    {this.state.produto.nome}
-                                                </div>
-                                            </li>
-                                        )}
 
-                                        {this.state.produto.descricao && (
-                                            <li><b>Descrição </b>
-                                                <div>
-                                                    {this.state.produto.descricao}
-                                                </div>
-                                            </li>
-                                        )}
-                                        {this.state.produto.tamanho && (
-                                            <li><b>Tamanho </b>
-                                                <div>
-                                                    {this.state.produto.tamanho}
-                                                </div>
-                                            </li>
-                                        )}
-                                        {this.state.produto.dimensoes && (
-                                            <li><b>Dimensões </b>
-                                                <div>
-                                                    {this.state.produto.dimensoes}
-                                                </div>
-                                            </li>
-                                        )}
-                                        {this.state.produto.cor && (
-                                            <li><b>Cor </b>
-                                                <div>
-                                                    {this.state.produto.cor}
-                                                </div>
-                                            </li>
-                                        )}
-					{this.state.produto.preco && (
-                                          <li>
-                                            <div className="precoShopItem">
-                                                <Currency
+                                    {this.state.produto.nome && (                                        
+                                        <div className="nomeShopItem">
+                                            {this.state.produto.nome}
+                                        </div>                                        
+                                    )}
+
+                                    {this.state.produto.descricao && (                                        
+                                        <div className="nomeShopDesc">
+                                            {this.state.produto.descricao}
+                                        </div>                                        
+                                    )}
+
+                                    {this.state.produto.tamanho && (                                        
+                                        <div className="nomeShopDefault">
+                                            {this.state.produto.tamanho}
+                                        </div>                                        
+                                    )}
+
+                                    {this.state.produto.dimensoes && (                                        
+                                        <div className="nomeShopDefault">
+                                            {this.state.produto.dimensoes}
+                                        </div>                                        
+                                    )}
+
+                                    {this.state.produto.cor && (                                        
+                                        <div className="nomeShopDefault">
+                                            {this.state.produto.cor}
+                                        </div>                                        
+                                    )}
+
+                                    {this.state.produto.preco && (                                        
+                                        <div className="precoShopItem">
+                                            <Currency
                                                     quantity={parseFloat(this.state.produto.preco)}
                                                     currency="BRL"
                                                 />
-                                            </div>
+                                        </div>                                        
+                                    )}
 
-                                          </li>
-					)}
-                                        <li>
-                                            <Button className="mb-2 mr-2" color="info" onClick={() => this.onClickCarrinho(this.state.produto)}>+<i className="pe-7s-cart"/></Button>
-                                        </li>
-                                    </ul>
+                                    <div className="nomeShopBotao">
+                                        <Button className="mb-2 mr-2" color="info" onClick={() => this.onClickCarrinho(this.state.produto)}>+<i className="pe-7s-cart"/></Button>
+                                    </div>
+                                   
+                                   
                                 </Col>
                                 
                             </Row>

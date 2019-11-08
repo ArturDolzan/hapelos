@@ -8462,8 +8462,8 @@ button,
 
 .app-footer {
   height: 60px; 
-  display: 'flex';
-  position: 'absolute';
+  display: flex;
+  position: absolute;
   bottom: 0px;
   margin-top: 10px; 
 }
@@ -12458,6 +12458,7 @@ body {
 .precoShopItem {
   font-weight: bold;
   font-size: 2rem;
+  margin-top: 20px;
 }
 
 .flex-container {
@@ -12483,4 +12484,22 @@ body {
   position: absolute;
   top:160px;
   left: 20px;
+}
+
+.nomeShopItem {
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.nomeShopDesc {
+  font-size: 20px;
+}
+
+.nomeShopDefault {
+  font-size: 18px;
+}
+
+.nomeShopBotao{
+  margin-top: 20px;
 }

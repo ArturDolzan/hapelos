@@ -35,7 +35,7 @@ class Administrativo extends React.Component {
     notify = (msg, sucesso) => this.toastId = toast(msg, {
         transition: Bounce,
         closeButton: true,
-        autoClose: 5000,
+        autoClose: 3000,
         position: 'bottom-center',
         type: sucesso? 'success' : 'error'
     })

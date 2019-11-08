@@ -50,15 +50,7 @@ class HeaderLogo extends React.Component {
                 <Link to={'/'}>
                     <div className="app-header__logo">
                         <div className="logo-src"/>
-                        {/* <div className="header__pane ml-auto">
-                            <div onClick={this.toggleEnableClosedSidebar}>
-                                <Hamburger
-                                    active={enableClosedSidebar}
-                                    type="elastic"
-                                    onClick={() => this.setState({active: !this.state.active})}
-                                />
-                            </div>
-                        </div> */}
+                      
                     </div>
                 </Link>
 

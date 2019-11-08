@@ -43,7 +43,7 @@ class UtilitiesColors extends React.Component {
     notify = (msg, sucesso) => this.toastId = toast(msg, {
         transition: Bounce,
         closeButton: true,
-        autoClose: 5000,
+        autoClose: 3000,
         position: 'bottom-center',
         type: sucesso? 'success' : 'error'
     })
@@ -74,6 +74,7 @@ class UtilitiesColors extends React.Component {
 
     clickCarrinho(item) {
 
+        this.notify(`${item.nome} adicionado(a) ao carrinho...`, true)
         this.props.addItemCarrinho(item)
     }
 
@@ -147,6 +148,7 @@ class UtilitiesColors extends React.Component {
                             })}  
                         </Row>
                     )}
+                    
                 </ReactCSSTransitionGroup>
                 <AppFooter></AppFooter>
             </Fragment>
