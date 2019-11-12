@@ -12074,8 +12074,9 @@ body {
   margin-bottom: 30px !important; }
 
 .card-lista-produtos{
-  margin-bottom: 30px; 
+  margin-bottom: 10px; 
   min-height: 320px;
+  min-width: 250px;
   font-size: 12px;
   box-shadow:none}
 
@@ -12114,11 +12115,9 @@ body {
   height: 100%;
 }
 .card-preco{
-  bottom:14px;
-  left:20px;
-  position: absolute;
   font-size: 30px;
   font-weight: 600;
+  padding-bottom: 10px;
 }
 .card-lista-produtos ul{
   list-style: none;

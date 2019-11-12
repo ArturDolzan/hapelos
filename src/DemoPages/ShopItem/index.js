@@ -9,6 +9,7 @@ import {
 import PageTitle from 'Layout/AppMain/PageTitle';
 import {withRouter} from 'react-router-dom'
 import axios from 'axios'
+import queryString from 'query-string'
 import {addItemCarrinho, remItemCarrinho} from '../../actions/CarrinhoAction'
 
 // Layout
@@ -30,6 +31,8 @@ class ShopItem extends React.Component{
         super(props)
 
         const { router, params, location, routes, history } = this.props
+
+        //let query = queryString.parse(this.props.location.search)
 
         this.state = {
             produto: {

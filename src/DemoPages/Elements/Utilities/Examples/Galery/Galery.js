@@ -13,51 +13,47 @@ class Galery extends React.Component {
     render() {
         return (
             <Fragment>
+
                 <Col md="3">
                     <Card className="card-lista-produtos">
-                        <Link className="linkBaixo sem-underline" to={{
-                            pathname: '/shopitem/' + this.props.Produto.id,
-                            query : { id: this.props.Produto.id}
-                        }}> 
-                            <div className="card-item">
-                                <img src={`data:image/jpeg;base64,${this.props.Produto.foto}`}/>
-                            </div>
-                        </Link>
                         <CardBody>
                             <Link className="linkBaixo sem-underline" to={{
-                                pathname: '/shopitem/' + this.props.Produto.id,
-                                query : { id: this.props.Produto.id}
-                            }}>
-                                <CardTitle>
-                                    {this.props.Produto.nome}
+                                        pathname: '/shopitem/',
+                                        query : { id: this.props.Produto.id}
+                                    }}> 
+                                
+                                <div className="card-item">
+                                    <img src={`data:image/jpeg;base64,${this.props.Produto.foto}`}/>
+                                </div>
 
-                                </CardTitle>
+                                <CardTitle>{this.props.Produto.nome}</CardTitle>
+                            
                                 <CardSubtitle className="sub-produto">
                                     {this.props.Produto.descricao}
                                 </CardSubtitle>
+
+                                <div className="card-preco">                                
+                                    <Currency
+                                        quantity={parseFloat(this.props.Produto.preco)}
+                                        currency="BRL"
+                                    />
+                                </div>
+
                             </Link>
-                            
-                            <div className="card-preco">
-                                
-                                <Currency
-                                    quantity={parseFloat(this.props.Produto.preco)}
-                                    currency="BRL"
-                                />
 
-                            </div>
+                            <Button className="mb-2 mr-2 " color="info" onClick={() => this.props.onClickCarrinho(this.props.Produto)}>+<i className="pe-7s-cart"/></Button>
+                        
+                            {this.props.Auth && (
+                                <Fragment>                                            
+                                    <Button className="mb-2 mr-2" color="warning" onClick={() => this.props.onClickRemoverProduto(this.props.Produto)}><i className="pe-7s-trash"/></Button>                                                    
+                                </Fragment>
+                            )}
 
-                            <div >
-                                <Button className="mb-2 mr-2 card-cart-button" color="info" onClick={() => this.props.onClickCarrinho(this.props.Produto)}>+<i className="pe-7s-cart"/></Button>
-                            </div>
- 
                         </CardBody>
-                        {this.props.Auth && (
-                            <Fragment>                                            
-                                <Button className="mb-2 mr-2 button-excluir" color="warning" onClick={() => this.props.onClickRemoverProduto(this.props.Produto)}><i className="pe-7s-trash"/></Button>                                                    
-                            </Fragment>
-                        )}
+
                     </Card>
                 </Col>
+                
             </Fragment>
         )
     }
