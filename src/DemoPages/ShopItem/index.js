@@ -9,7 +9,6 @@ import {
 import PageTitle from 'Layout/AppMain/PageTitle';
 import {withRouter} from 'react-router-dom'
 import axios from 'axios'
-import queryString from 'query-string'
 import {addItemCarrinho, remItemCarrinho} from '../../actions/CarrinhoAction'
 
 // Layout
