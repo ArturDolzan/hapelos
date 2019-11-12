@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 import Hamburger from 'react-hamburgers';
 
@@ -7,6 +8,7 @@ import cx from 'classnames';
 
 import {
     faEllipsisV,
+    faHome
 
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -59,9 +61,18 @@ class AppMobileMenu extends React.Component {
 
         return (
             <Fragment>
+                {/* <Link to={'/'}>
+                    <div className="app-header-left">
 
+                        <div className="btn-icon-wrapper"><FontAwesomeIcon icon={faHome}/></div>
+                       
+                    </div>
+                </Link> */}
                 <div className="app-header__mobile-menu">
                     <div onClick={this.toggleMobileSidebar}>
+                    
+                    
+
                         {/* <Hamburger
                             active={enableMobileMenu}
                             type="elastic"
