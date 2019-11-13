@@ -22,8 +22,13 @@ import {
 
 
 const override = css`
-    display: block;
-    margin: 0 auto;
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
     border-color: blue;
 `;
 
@@ -48,7 +53,7 @@ class UtilitiesColors extends React.Component {
         type: sucesso? 'success' : 'error'
     })
 
-    componentDidMount() {
+    componentDidMount = () => {
 
         this.carregarProdutos()
     }
