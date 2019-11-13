@@ -1,8 +1,15 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom'
+import {setEnableMobileMenuSmall} from '../../reducers/ThemeOptions'
 
 class PageTitle extends Component {
+    
+    alterarEstadoMenuMovel = (ativo) => {
+        
+        this.props.setEnableMobileMenuSmall(ativo)
+    }
+    
     renderQtdeCarrinho(){
  
         let qtde = 0
@@ -29,7 +36,14 @@ class PageTitle extends Component {
 
         return (
             <Fragment>
-                <Link to={'/carrinho'} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm">
+
+                {this.props.enableMobileMenuSmall && (
+                    <Link to={'/'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm">
+                        <i className="pe-7s-home btn-icon-wrapper font-size-xlg"> </i>
+                    </Link>
+                )}
+                
+                <Link to={'/carrinho'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm">
                     <i className="pe-7s-cart btn-icon-wrapper font-size-xlg"> </i>
                     {this.renderQtdeCarrinho()}
                 </Link>
@@ -37,7 +51,7 @@ class PageTitle extends Component {
                 {!this.props.auth && (                                        
                     <Fragment>
                         
-                        <Link to={'/administrativo'} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm"> 
+                        <Link to={'/administrativo'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm"> 
                             <i className="pe-7s-settings btn-icon-wrapper font-size-xlg"> </i>                
                         </Link>
 
@@ -47,7 +61,7 @@ class PageTitle extends Component {
                 {this.props.auth && (                                        
                     <Fragment>
                         
-                        <Link to={'/administrativo'} className="linkVermelho mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm"> 
+                        <Link to={'/administrativo'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkVermelho mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm"> 
                             <i className="pe-7s-settings btn-icon-wrapper font-size-xlg"> </i>                
                         </Link>
 
@@ -63,9 +77,12 @@ const mapStateToProps = state => ({
     enablePageTitleIcon: state.ThemeOptions.enablePageTitleIcon,
     enablePageTitleSubheading: state.ThemeOptions.enablePageTitleSubheading,
     carrinho: state.CarrinhoReducer.itensCarrinho,
-    auth: state.AuthReducer.auth
+    auth: state.AuthReducer.auth,
+    enableMobileMenuSmall: state.ThemeOptions.enableMobileMenuSmall
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+    setEnableMobileMenuSmall: enable => dispatch(setEnableMobileMenuSmall(enable)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(PageTitle);

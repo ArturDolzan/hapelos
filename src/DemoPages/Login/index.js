@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import { Link } from 'react-router-dom'
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap"
+import { Button, FormGroup, FormControl, ControlLabel, Col, Row } from "react-bootstrap"
 import PageTitle from 'Layout/AppMain/PageTitle'
 import axios from 'axios'
 import {connect} from 'react-redux'
@@ -91,44 +91,49 @@ class Login extends React.Component{
 
                 <div className="Login">
                     <form onSubmit={this.handleSubmit}>
-                        <FormGroup controlId="nome" bsSize="large">
-                            <ControlLabel>Nome</ControlLabel>
-                            <FormControl
-                            autoFocus
-                            type="text"
-                            value={this.state.nome}
-                            onChange={this.handleChange}
-                            />
-                        </FormGroup>
-                        <FormGroup controlId="email" bsSize="large">
-                            <ControlLabel>E-mail</ControlLabel>
-                            <FormControl
-                             value={this.state.email}
-                             onChange={this.handleChange}
-                            type="email"
-                            />
-                        </FormGroup>
-                       
-                        <FormGroup controlId="telefone" bsSize="large">
-                            <ControlLabel>Telefone</ControlLabel>
-                            <FormControl
-                             value={this.state.telefone}
-                             onChange={this.handleChange}
-                            />
-                        </FormGroup>
-                        <Button
-                            block
-                            bsSize="large"
-                             disabled={!this.validateForm()}
-                            type="submit"
-                            style= {{
-                                backgroundColor: '#17a2b8',
-                                color: '#fff',
-                                fontWeight: 'bold'
-                            }}
-                        >
-                            Confirmar
-                        </Button>
+                        <Row form>
+                            <Col md={12}>
+                                <FormGroup controlId="nome" bsSize="large">
+                                    <ControlLabel>Nome</ControlLabel>
+                                    <FormControl
+                                    autoFocus
+                                    type="text"
+                                    value={this.state.nome}
+                                    onChange={this.handleChange}
+                                    />
+                                </FormGroup>
+                                <FormGroup controlId="email" bsSize="large">
+                                    <ControlLabel>E-mail</ControlLabel>
+                                    <FormControl
+                                    value={this.state.email}
+                                    onChange={this.handleChange}
+                                    type="email"
+                                    />
+                                </FormGroup>
+                            
+                                <FormGroup controlId="telefone" bsSize="large">
+                                    <ControlLabel>Telefone</ControlLabel>
+                                    <FormControl
+                                    value={this.state.telefone}
+                                    onChange={this.handleChange}
+                                    />
+                                </FormGroup>
+                                <Button
+                                    block
+                                    bsSize="large"
+                                    disabled={!this.validateForm()}
+                                    type="submit"
+                                    style= {{
+                                        backgroundColor: '#17a2b8',
+                                        color: '#fff',
+                                        fontWeight: 'bold'
+                                    }}
+                                >
+                                    Confirmar
+                                </Button>
+
+                            </Col>
+                        </Row>
 
                     </form>
                 </div>

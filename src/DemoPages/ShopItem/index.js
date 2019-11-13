@@ -12,6 +12,10 @@ import axios from 'axios'
 import {addItemCarrinho, remItemCarrinho} from '../../actions/CarrinhoAction'
 import ClipLoader from 'react-spinners/ClipLoader'
 import { css } from '@emotion/core'
+import {
+    faCoffee, faShoppingCart
+} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 // Layout
 
@@ -162,7 +166,7 @@ class ShopItem extends React.Component{
                                         )}
 
                                         <div className="nomeShopBotao">
-                                            <Button className="mb-2 mr-2" color="info" onClick={() => this.onClickCarrinho(this.state.produto)}>+<i className="pe-7s-cart"/></Button>
+                                            <Button className="mb-2 mr-2" color="info" onClick={() => this.onClickCarrinho(this.state.produto)}><FontAwesomeIcon icon={faShoppingCart} size="1x"/></Button>
                                         </div>
                                     
                                     
