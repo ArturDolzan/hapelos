@@ -17,8 +17,6 @@ class Galery extends React.Component {
 
     render() {
 
-        const classes = useStyles()
-
         return (
             <Fragment>
 
