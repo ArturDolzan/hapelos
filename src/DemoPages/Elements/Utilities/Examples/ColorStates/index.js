@@ -99,6 +99,32 @@ class UtilitiesColors extends React.Component {
         })
     }
 
+    clickLike(item) {
+                
+        axios.post(`https://www.infisio.com.br/apihapelos/produtos/addLike/${item.id}`)
+        .then(dados => {
+            
+            let prod = [...this.state.produtos]
+
+            let item = prod.filter(item => item.id == dados.data.id)[0]
+
+            if (item){
+                item.likes = item.likes + 1
+            }
+
+            this.setState({
+                produtos: prod
+            })
+
+            this.notify('Liked =D', true)
+
+        })
+        .catch(error => {
+            
+            this.notify(`Não foi possível curtir. Falha: ${error}`, false)
+        })
+    }
+
     render(){
 
         return (
@@ -143,6 +169,9 @@ class UtilitiesColors extends React.Component {
                                         Auth = {this.props.auth}  
                                         onClickCarrinho = {(item) => 
                                             this.clickCarrinho(item)
+                                        }
+                                        onClickLike = {(item) => 
+                                            this.clickLike(item)
                                         }
                                         onClickRemoverProduto = {(item) => 
                                             this.clickRemoverProduto(item)

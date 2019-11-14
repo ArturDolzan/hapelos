@@ -12505,3 +12505,24 @@ body {
 .nomeShopBotao{
   margin-top: 20px;
 }
+
+.linkBrancoHeart{
+  color:#fff;
+}.linkBrancoHeart:hover{
+  color:#fff;
+}.linkBrancoHeart span{
+  background-color: #f66;
+}
+
+.btn-circle {   
+  width: 30px; 
+  height: 30px; 
+  border-radius: 15px; 
+  font-size: 12px; 
+  text-align: center; 
+} 
+
+.btn-circle-badge {   
+  top: -12px !important;
+  right: -10px !important;
+} 
