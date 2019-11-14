@@ -62,7 +62,7 @@
     "react": "16.7.0",
     "react-addons-css-transition-group": "15.6.2",
     "react-addons-shallow-compare": "15.6.0",
-    "react-animated-css": "1.0.4",
+    "react-animated-css": "^1.2.1",
     "react-anime": "2.2.0",
     "react-bootstrap": "0.32.4",
     "react-chartjs-2": "2.7.4",

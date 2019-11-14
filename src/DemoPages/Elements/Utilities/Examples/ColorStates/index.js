@@ -103,6 +103,17 @@ class UtilitiesColors extends React.Component {
 
         return (
             <Fragment>
+
+                <div className='sweet-loading'>
+                    <ClipLoader
+                    css={override}
+                    sizeUnit={"px"}
+                    size={80}
+                    color={'#123abc'}
+                    loading={this.state.carregando}
+                    />
+                </div>
+
                 <ReactCSSTransitionGroup
                     component="div"
                     className="container"
@@ -120,16 +131,6 @@ class UtilitiesColors extends React.Component {
                         }}><h2>Sem produtos ☺</h2></div>
                     )}
                    
-                    <div className='sweet-loading'>
-                        <ClipLoader
-                        css={override}
-                        sizeUnit={"px"}
-                        size={80}
-                        color={'#123abc'}
-                        loading={this.state.carregando}
-                        />
-                    </div> 
-
                     {!this.state.carregando && (
                         <Row> 
                             

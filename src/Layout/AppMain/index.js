@@ -1,5 +1,6 @@
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 import React, {Suspense, lazy, Fragment} from 'react'
+import ClipLoader from 'react-spinners/ClipLoader'
 
 import {
     ToastContainer,
@@ -22,7 +23,14 @@ const AppMain = () => {
                 <div className="loader-container">
                     <div className="loader-container-inner">
                         <h6 className="mt-3">
-                            Aguarde...
+                            <div className='sweet-loading'>
+                                <ClipLoader
+                                sizeUnit={"px"}
+                                size={80}
+                                color={'#123abc'}
+                                loading={true}
+                                />
+                            </div>
                         </h6>
                     </div>
                 </div>
@@ -34,7 +42,14 @@ const AppMain = () => {
                 <div className="loader-container">
                     <div className="loader-container-inner">
                         <h6 className="mt-3">
-                            Aguarde...
+                        <div className='sweet-loading'>
+                                <ClipLoader
+                                sizeUnit={"px"}
+                                size={80}
+                                color={'#123abc'}
+                                loading={true}
+                                />
+                            </div>
                         </h6>
                     </div>
                 </div>
@@ -46,7 +61,14 @@ const AppMain = () => {
                 <div className="loader-container">
                     <div className="loader-container-inner">
                         <h6 className="mt-3">
-                            Empurrando o carrinho...
+                            <div className='sweet-loading'>
+                                <ClipLoader
+                                sizeUnit={"px"}
+                                size={80}
+                                color={'#123abc'}
+                                loading={true}
+                                />
+                            </div>
                         </h6>
                     </div>
                 </div>
@@ -58,7 +80,14 @@ const AppMain = () => {
                 <div className="loader-container">
                     <div className="loader-container-inner">
                         <h6 className="mt-3">
-                            Carregando...
+                            <div className='sweet-loading'>
+                                <ClipLoader
+                                sizeUnit={"px"}
+                                size={80}
+                                color={'#123abc'}
+                                loading={true}
+                                />
+                            </div>
                         </h6>
                     </div>
                 </div>
@@ -70,7 +99,14 @@ const AppMain = () => {
                 <div className="loader-container">
                     <div className="loader-container-inner">
                         <h6 className="mt-3">
-                            Carregando...
+                            <div className='sweet-loading'>
+                                <ClipLoader
+                                sizeUnit={"px"}
+                                size={80}
+                                color={'#123abc'}
+                                loading={true}
+                                />
+                            </div>
                         </h6>
                     </div>
                 </div>

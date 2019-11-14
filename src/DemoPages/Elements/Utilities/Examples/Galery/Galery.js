@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment} from 'react'
 import {
     Col,
     Card, CardBody,
@@ -14,7 +14,11 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 
 class Galery extends React.Component {
+
     render() {
+
+        const classes = useStyles()
+
         return (
             <Fragment>
 
@@ -47,7 +51,7 @@ class Galery extends React.Component {
 
                             <Button className="mb-2 mr-2" color="info" onClick={() => this.props.onClickCarrinho(this.props.Produto)}><FontAwesomeIcon icon={faShoppingCart} size="1x"/></Button>
                             <Button className="mb-2 mr-2" style={{float: "right"}} color="danger"><FontAwesomeIcon icon={faHeart} size="1x"/></Button>
-                        
+                             
                             {this.props.Auth && (
                                 <Fragment>                                            
                                     <Button className="mb-2 mr-2" color="warning" onClick={() => this.props.onClickRemoverProduto(this.props.Produto)}><FontAwesomeIcon icon={faTrash} size="1x"/></Button>                                                    

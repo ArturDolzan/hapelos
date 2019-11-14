@@ -1,10 +1,13 @@
-import React, {Fragment} from 'react';
-import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import React, {Fragment} from 'react'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
-import Hamburger from 'react-hamburgers';
+import Hamburger from 'react-hamburgers'
 
-import AppMobileMenu from '../AppMobileMenu';
+import AppMobileMenu from '../AppMobileMenu'
+
+import {Animated} from "react-animated-css"
+import Anime from 'react-anime'
 
 import {
     setEnableClosedSidebar,
@@ -54,8 +57,13 @@ class HeaderLogo extends React.Component {
                     </div>
                 </Link>
 
-                    
                 <AppMobileMenu/>
+
+                 {/* <Animated animationIn="fadeIn" animationOut="shake" isVisible={true}> 
+                    
+                    <AppMobileMenu/>
+                    
+                </Animated> */}
             </Fragment>
         )
     }
