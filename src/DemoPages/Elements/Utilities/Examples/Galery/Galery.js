@@ -7,9 +7,7 @@ import {
 } from 'reactstrap'
 import {Link, withRouter} from 'react-router-dom'
 import Currency from 'react-currency-formatter'
-import {
-    faCoffee, faShoppingCart, faTrash, faHeart
-} from '@fortawesome/free-solid-svg-icons'
+import {faCoffee, faShoppingCart, faTrash, faHeart} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 

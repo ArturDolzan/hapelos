@@ -75,7 +75,7 @@ const Carrinho = (props) => {
 
                            <div style={{alignSelf: 'center', marginTop: '30px'}}>
                              <Link className="linkBaixo sem-underline" to='/confirmacao'>
-                                 <Button style={{position:'inherit'}} className="mb-2 mr-2 card-cart-button" color="info" disabled={props.carrinho.length === 0}>Finalizar compra</Button>
+                                 <Button style={{position:'inherit'}} className="mb-2 mr-2 card-cart-button" color="info" disabled={props.carrinho.length === 0}>Finalizar Compra</Button>
                              </Link>
       		           </div>
                             

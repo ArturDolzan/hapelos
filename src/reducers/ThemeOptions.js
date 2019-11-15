@@ -23,6 +23,8 @@ export const SET_BACKGROUND_IMAGE_OPACITY = 'THEME_OPTIONS/SET_BACKGROUND_IMAGE_
 
 export const SET_HEADER_BACKGROUND_COLOR = 'THEME_OPTIONS/SET_HEADER_BACKGROUND_COLOR';
 
+export const SET_PULSE_MOBILE_MENU = 'THEME_OPTIONS/SET_PULSE_MOBILE_MENU';
+
 
 export const setEnableBackgroundImage = enableBackgroundImage => ({
     type: SET_ENABLE_BACKGROUND_IMAGE,
@@ -94,6 +96,11 @@ export const setHeaderBackgroundColor = headerBackgroundColor => ({
     headerBackgroundColor
 });
 
+export const setPulseMobileMenu = pulseMobileMenu => ({
+    type: SET_PULSE_MOBILE_MENU,
+    pulseMobileMenu
+});
+
 export const setColorScheme = colorScheme => ({
     type: SET_COLOR_SCHEME,
     colorScheme
@@ -126,6 +133,7 @@ export default function reducer(state = {
     enablePageTitleIcon: true,
     enablePageTitleSubheading: true,
     enablePageTabsAlt: false,
+    pulseMobileMenu: false,
 }, action) {
     switch (action.type) {
         case SET_ENABLE_BACKGROUND_IMAGE:
@@ -138,6 +146,12 @@ export default function reducer(state = {
             return {
                 ...state,
                 enableFixedHeader: action.enableFixedHeader
+            };
+
+        case SET_PULSE_MOBILE_MENU:
+            return {
+                ...state,
+                pulseMobileMenu: action.pulseMobileMenu
             };
 
         case SET_ENABLE_HEADER_SHADOW:

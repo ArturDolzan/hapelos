@@ -30,7 +30,7 @@ class Login extends React.Component{
     notify = (msg, sucesso, cbclose) => this.toastId = toast(msg, {
         transition: Bounce,
         closeButton: true,
-        autoClose: 3000,
+        autoClose: 2500,
         position: 'bottom-center',
         type: sucesso? 'success' : 'error',
         onClose: () => {cbclose()}

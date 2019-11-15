@@ -29,7 +29,8 @@ class AppMobileMenu extends React.Component {
         this.state = {
             active: false,
             mobile: false,
-            activeSecondaryMenuMobile: false
+            activeSecondaryMenuMobile: false,
+            pulse: false
         };
 
     }
@@ -52,6 +53,7 @@ class AppMobileMenu extends React.Component {
         width: 280,
         noTouchOpen: false,
         noTouchClose: false,
+        pulse: false
     };
 
     render() {
@@ -71,8 +73,6 @@ class AppMobileMenu extends React.Component {
                 <div className="app-header__mobile-menu">
                     <div onClick={this.toggleMobileSidebar}>
                     
-                    
-
                         {/* <Hamburger
                             active={enableMobileMenu}
                             type="elastic"
@@ -85,8 +85,8 @@ class AppMobileMenu extends React.Component {
                         <Button size="sm"
                                 className={cx("btn-icon btn-icon-only", {active: this.state.activeSecondaryMenuMobile})}
                                 color="primary"
-                                onClick={() => this.setState({activeSecondaryMenuMobile: !this.state.activeSecondaryMenuMobile})}>
-                            <div className="btn-icon-wrapper"><FontAwesomeIcon icon={faEllipsisV}/></div>
+                                onClick={() => this.setState({activeSecondaryMenuMobile: !this.state.activeSecondaryMenuMobile})}>                                
+                            <div className={this.props.pulseMobileMenu ? "btn-icon-wrapper spanMenuMobilePulse" : "btn-icon-wrapper spanMenuMobilePulse spanMenuMobilePulseOff"}><FontAwesomeIcon icon={faEllipsisV}/></div>
                         </Button>
                     </span>
                 </div>
@@ -100,6 +100,7 @@ const mapStateToProps = state => ({
     closedSmallerSidebar: state.ThemeOptions.closedSmallerSidebar,
     enableMobileMenu: state.ThemeOptions.enableMobileMenu,
     enableMobileMenuSmall: state.ThemeOptions.enableMobileMenuSmall,
+    pulseMobileMenu: state.ThemeOptions.pulseMobileMenu,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -20,6 +20,8 @@ import {
     Bounce
 } from 'react-toastify'
 
+import {setPulseMobileMenu} from '../../../../../reducers/ThemeOptions'
+
 
 const override = css`
     display: inline-block;
@@ -80,7 +82,16 @@ class UtilitiesColors extends React.Component {
     clickCarrinho(item) {
 
         this.notify(`${item.nome} adicionado(a) ao carrinho...`, true)
-        this.props.addItemCarrinho(item)
+        this.props.addItemCarrinho(item)    
+        
+        this.pulseMobileMenu()
+    }
+
+    pulseMobileMenu = () => {
+        
+        this.props.setPulseMobileMenu(true)
+        
+        setTimeout(()=> this.props.setPulseMobileMenu(false), 500)
     }
 
     clickRemoverProduto(item) {
@@ -198,7 +209,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
     return {
-        addItemCarrinho: (item) => { dispatch(addItemCarrinho(item)) }
+        addItemCarrinho: (item) => { dispatch(addItemCarrinho(item)) },
+        setPulseMobileMenu: (enable) => { dispatch(setPulseMobileMenu(enable)) },
     };
 }
  

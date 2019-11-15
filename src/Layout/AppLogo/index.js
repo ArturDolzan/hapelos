@@ -57,13 +57,13 @@ class HeaderLogo extends React.Component {
                     </div>
                 </Link>
 
-                <AppMobileMenu/>
+                {/* <AppMobileMenu/> */}
 
-                 {/* <Animated animationIn="fadeIn" animationOut="shake" isVisible={true}> 
+                  <Animated style={{marginTop:"-60px"}} animationIn="lightSpeedIn" animationOut="lightSpeedOut" isVisible={true}> 
                     
                     <AppMobileMenu/>
                     
-                </Animated> */}
+                </Animated> 
             </Fragment>
         )
     }
