@@ -7,57 +7,41 @@ import {
     Col, Row, Container,
     Card, CardBody,
     CardTitle, CardSubtitle,
-    Button, Progress, Label, ListGroup, ListGroupItem
+    Button, Progress, Label, ListGroup, ListGroupItem, Table
 } from 'reactstrap'
+import {faPlus, faMinus} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
  
 import AppHeader from '../../Layout/AppHeader/'
 import AppSidebar from '../../Layout/AppSidebar/'
 import AppFooter from '../../Layout/AppFooter/'
-import PageTitle from 'Layout/AppMain/PageTitle'
 
 const renderItensCarrinho = (props) => {
 
     return (
         <Fragment>
 
-            <ListGroup>
-                {props.carrinho.map((item, idx) => {
+            <Table className="mb-0">
+              
+                <tbody>
 
-                    return (
-                        <ListGroupItem key={item.id}>
+                    {props.carrinho.map((item, idx) => {
 
-                            <Row className="flex-container" >
-
-                                <Col sm="2" className="flex-container-foto-desc-carrinho">
-                                
-                                    <div className="card-item-carrinho">
-                                        <img src={`data:image/jpeg;base64,${item.foto}`}/>
-                                    </div>
-
-                                </Col>
-                                <Col sm="7" className="flex-container-foto-desc-carrinho">
-                                    <CardTitle>
-                                        {item.nome}
-                                    </CardTitle>
-                                </Col>
-                                <Col sm="1" className="flex-container-direita">
-                                    <Button className="mb-2 mr-2 card-cart-button" color="info" onClick={() => props.remItemCarrinho(item)}>-</Button>
-                                </Col>
-                                <Col sm="0.5" className="flex-container-direita flex-container-direita-texto-qtde">
-                                    <Label style={{marginTop: '25px'}} color="info">{item.qtde}</Label>
-                                </Col>
-				<Col sm="1" className="flex-container-direita">
-                                    <Button className="mb-2 mr-2 card-cart-button" color="info" onClick={() => props.addItemCarrinho(item)}>+</Button>
-                                </Col>
-                                
-                            
-                            </Row> 
-
-                        </ListGroupItem>
-                    )
-
-                })}
-            </ListGroup>
+                        return (                        
+                            <Fragment key={item.id}>
+                                <tr className="d-flex tablesCarrinho">
+                                    
+                                    <td className="col-sm-2"><img width={75} className="rounded-circle" src={`data:image/jpeg;base64,${item.foto}`} alt=""/></td>
+                                    <td className="col-sm-8">{item.nome}</td>
+                                    <td className="col-sm-0.5"> <Button color="info" className="btn-circle" onClick={() => props.remItemCarrinho(item)}><FontAwesomeIcon style={{marginLeft:"-3px"}} icon={faMinus} size="1x"/></Button> </td>
+                                    <td className="col-sm-0.5"> <Label color="info">{item.qtde}</Label> </td>
+                                    <td className="col-sm-0.5"> <Button color="info" className="btn-circle" onClick={() => props.addItemCarrinho(item)}><FontAwesomeIcon style={{marginLeft:"-3px"}} icon={faPlus} size="1x"/></Button> </td>
+                                </tr>                                
+                            </Fragment>
+                        )
+                    })}
+                </tbody>
+            </Table>
 
         </Fragment>
     )

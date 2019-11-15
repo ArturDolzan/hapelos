@@ -12526,3 +12526,7 @@ body {
   top: -12px !important;
   right: -10px !important;
 } 
+
+.tablesCarrinho:hover {
+  background-color: #e4f2f9;
+}
