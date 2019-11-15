@@ -1,9 +1,7 @@
-import React, {Fragment} from 'react';
-import {connect} from 'react-redux';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import {
-    Row, Card
-} from 'reactstrap';
+import React, {Fragment} from 'react'
+import {connect} from 'react-redux'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import {Row, Card, Modal, ModalHeader, ModalBody, ModalFooter, Button} from 'reactstrap'
 import Galery from '../Galery/Galery';
 import axios from 'axios'
 import {Link} from 'react-router-dom';
@@ -43,7 +41,9 @@ class UtilitiesColors extends React.Component {
             produtos: [
 
             ],
-            carregando: true
+            carregando: true,
+            modal: false,
+            itemRemover: {}
         }
     }
 
@@ -96,7 +96,7 @@ class UtilitiesColors extends React.Component {
 
     clickRemoverProduto(item) {
 
-        axios.delete(`https://www.infisio.com.br/apihapelos/produtos/${item.id}`)
+        /*axios.delete(`https://www.infisio.com.br/apihapelos/produtos/${item.id}`)
         .then(_ => {
             
             this.carregarProdutos()
@@ -107,7 +107,12 @@ class UtilitiesColors extends React.Component {
         .catch(error => {
             
             this.notify(`Não foi possível remover. Falha: ${error}`, false)
+        })*/
+
+        this.setState({
+            itemRemover: item
         })
+        this.toggleModal()
     }
 
     clickLike(item) {
@@ -136,11 +141,60 @@ class UtilitiesColors extends React.Component {
         })
     }
 
+    removerProduto = () => {
+
+        let item = {...this.state.itemRemover}
+
+        if (item) {
+
+            axios.delete(`https://www.infisio.com.br/apihapelos/produtos/${item.id}`)
+            .then(_ => {
+                
+                this.carregarProdutos()
+                this.setState({
+                    itemRemover: {}
+                })
+                this.toggleModal()
+
+                this.notify('Produto removido com sucesso!', true)
+
+            })
+            .catch(error => {
+                
+                this.notify(`Não foi possível remover. Falha: ${error}`, false)
+            })
+        }
+    }
+
+    toggleModal = () => {
+        this.setState({modal: !this.state.modal})
+    }
+
+    renderModal() {
+
+        return (
+            <Fragment>
+                 <div>                    
+                    <Modal isOpen={this.state.modal} toggle={this.toggleModal} >
+                        <ModalHeader toggle={this.toggleModal}>Confirmação</ModalHeader>
+                        <ModalBody>
+                            Deseja remover o produto selecionado?
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button color="primary" onClick={this.removerProduto}>Sim</Button>{' '}
+                            <Button color="secondary" onClick={this.toggleModal}>Cancelar</Button>
+                        </ModalFooter>
+                    </Modal>
+                </div>
+            </Fragment>
+        )
+    }
+
     render(){
 
         return (
             <Fragment>
-
+                {this.renderModal()}
                 <div className='sweet-loading'>
                     <ClipLoader
                     css={override}

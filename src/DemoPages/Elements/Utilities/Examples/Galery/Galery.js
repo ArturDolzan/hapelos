@@ -3,7 +3,7 @@ import {
     Col,
     Card, CardBody,
     CardTitle, CardSubtitle,
-    Button, Progress
+    Button, Progress 
 } from 'reactstrap'
 import {Link, withRouter} from 'react-router-dom'
 import Currency from 'react-currency-formatter'
@@ -46,6 +46,7 @@ class Galery extends React.Component {
                             </Link>
 
                             <Button className="mb-2 mr-2" color="info" onClick={() => this.props.onClickCarrinho(this.props.Produto)}><FontAwesomeIcon icon={faShoppingCart} size="1x"/></Button>
+                             
                             <Button className="linkBrancoHeart mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm btn-circle" onClick={() => this.props.onClickLike(this.props.Produto)}
                              style={{float: "right"}} color="danger"><FontAwesomeIcon icon={faHeart} size="1x"/>
                                 <span className="badge badge-pill btn-circle-badge">{this.props.Produto.likes}</span>

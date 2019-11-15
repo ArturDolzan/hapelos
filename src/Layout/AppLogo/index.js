@@ -7,7 +7,6 @@ import Hamburger from 'react-hamburgers'
 import AppMobileMenu from '../AppMobileMenu'
 
 import {Animated} from "react-animated-css"
-import Anime from 'react-anime'
 
 import {
     setEnableClosedSidebar,
@@ -59,7 +58,7 @@ class HeaderLogo extends React.Component {
 
                 {/* <AppMobileMenu/> */}
 
-                  <Animated style={{marginTop:"-60px"}} animationIn="lightSpeedIn" animationOut="lightSpeedOut" isVisible={true}> 
+                  <Animated style={{marginTop:"-60px"}} animationIn="lightSpeedIn" animationOut="lightSpeedOut" isVisible={true} animationInDuration={500}> 
                     
                     <AppMobileMenu/>
                     

@@ -16,6 +16,10 @@ import AppHeader from '../../Layout/AppHeader/'
 import AppSidebar from '../../Layout/AppSidebar/'
 import AppFooter from '../../Layout/AppFooter/'
 
+const teste = () => {
+    debugger
+}
+
 const renderItensCarrinho = (props) => {
 
     return (
@@ -35,7 +39,7 @@ const renderItensCarrinho = (props) => {
                                     <td className="col-sm-8">{item.nome}</td>
                                     <td className="col-sm-0.5"> <Button color="info" className="btn-circle" onClick={() => props.remItemCarrinho(item)}><FontAwesomeIcon style={{marginLeft:"-3px"}} icon={faMinus} size="1x"/></Button> </td>
                                     <td className="col-sm-0.5"> <Label color="info">{item.qtde}</Label> </td>
-                                    <td className="col-sm-0.5"> <Button color="info" className="btn-circle" onClick={() => props.addItemCarrinho(item)}><FontAwesomeIcon style={{marginLeft:"-3px"}} icon={faPlus} size="1x"/></Button> </td>
+                                    <td className="col-sm-0.5"> <Button color="info" className="btn-circle" onClick={() => props.addItemCarrinho(item)}><FontAwesomeIcon style={{marginLeft:"-3px"}} icon={faPlus} size="1x"/></Button> </td>                                    
                                 </tr>                                
                             </Fragment>
                         )

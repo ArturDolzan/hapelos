@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom'
 import {setEnableMobileMenuSmall} from '../../reducers/ThemeOptions'
+import {Animated} from "react-animated-css"
 
 class PageTitle extends Component {
     
@@ -36,38 +37,39 @@ class PageTitle extends Component {
 
         return (
             <Fragment>
-
-                {this.props.enableMobileMenuSmall && (
-                    <Link to={'/'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm">
-                        <i className="pe-7s-home btn-icon-wrapper font-size-xlg"> </i>
+                <Animated animationIn="lightSpeedIn" animationOut="lightSpeedOut" isVisible={true} animationInDuration={500}> 
+                    {this.props.enableMobileMenuSmall && (
+                        <Link to={'/'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm">
+                            <i className="pe-7s-home btn-icon-wrapper font-size-xlg"> </i>
+                        </Link>
+                    )}
+                    
+                    <Link to={'/carrinho'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm">
+                        <i className="pe-7s-cart btn-icon-wrapper font-size-xlg"> </i>
+                        {this.renderQtdeCarrinho()}
                     </Link>
-                )}
-                
-                <Link to={'/carrinho'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm">
-                    <i className="pe-7s-cart btn-icon-wrapper font-size-xlg"> </i>
-                    {this.renderQtdeCarrinho()}
-                </Link>
 
-                {!this.props.auth && (                                        
-                    <Fragment>
-                        
-                        <Link to={'/administrativo'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm"> 
-                            <i className="pe-7s-settings btn-icon-wrapper font-size-xlg"> </i>                
-                        </Link>
+                    {!this.props.auth && (                                        
+                        <Fragment>
+                            
+                            <Link to={'/administrativo'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm"> 
+                                <i className="pe-7s-settings btn-icon-wrapper font-size-xlg"> </i>                
+                            </Link>
 
-                    </Fragment>
-                )}
+                        </Fragment>
+                    )}
 
-                {this.props.auth && (                                        
-                    <Fragment>
-                        
-                        <Link to={'/administrativo'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkVermelho mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm"> 
-                            <i className="pe-7s-settings btn-icon-wrapper font-size-xlg"> </i>                
-                        </Link>
+                    {this.props.auth && (                                        
+                        <Fragment>
+                            
+                            <Link to={'/administrativo'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkVermelho mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm"> 
+                                <i className="pe-7s-settings btn-icon-wrapper font-size-xlg"> </i>                
+                            </Link>
 
-                    </Fragment>
-                )}
+                        </Fragment>
+                    )}
 
+                </Animated>
             </Fragment>
         );
     }
