@@ -10,6 +10,7 @@ import PageTitle from 'Layout/AppMain/PageTitle';
 import {withRouter} from 'react-router-dom'
 import axios from 'axios'
 import {addItemCarrinho, remItemCarrinho} from '../../actions/CarrinhoAction'
+import {setPulseMobileMenu} from '../../reducers/ThemeOptions'
 import ClipLoader from 'react-spinners/ClipLoader'
 import { css } from '@emotion/core'
 import {
@@ -68,6 +69,13 @@ class ShopItem extends React.Component{
         type: sucesso? 'success' : 'error'
     })
 
+    pulseMobileMenu = () => {
+        
+        this.props.setPulseMobileMenu(true)
+        
+        setTimeout(()=> this.props.setPulseMobileMenu(false), 500)
+    }
+
     componentDidMount() {
 
         this.setState({carregando: true})
@@ -89,6 +97,8 @@ class ShopItem extends React.Component{
     onClickCarrinho(item){
         this.notify(`${item.nome} adicionado(a) ao carrinho...`, true)
         this.props.addItemCarrinho(item)
+
+        this.pulseMobileMenu()
     }
 
     render(){
@@ -193,6 +203,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
     return {
         addItemCarrinho: (item) => { dispatch(addItemCarrinho(item)) },
+        setPulseMobileMenu: (enable) => { dispatch(setPulseMobileMenu(enable)) },
     };
 }
  
