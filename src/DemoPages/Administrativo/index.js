@@ -7,6 +7,9 @@ import {connect} from 'react-redux'
 import { Col, Row, Container, Input } from 'reactstrap'
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap"
 
+import {faKey} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+
 import {setValorAuth} from '../../actions/AuthAction'
 
 import {
@@ -110,9 +113,11 @@ class Administrativo extends React.Component {
                             style= {{
                                 backgroundColor: '#17a2b8',
                                 color: '#fff',
-                                fontWeight: 'bold'
+                                fontWeight: 'bold',
+                                fontSize: '15px'
                             }}
                         >
+                            <FontAwesomeIcon style={{marginRight: '10px'}} icon={faKey} size="1x"/>
                             Autenticar
                         </Button>
 

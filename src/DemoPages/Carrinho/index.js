@@ -9,7 +9,7 @@ import {
     CardTitle, CardSubtitle,
     Button, Progress, Label, ListGroup, ListGroupItem, Table
 } from 'reactstrap'
-import {faPlus, faMinus} from '@fortawesome/free-solid-svg-icons'
+import {faPlus, faMinus, faShoppingBasket} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
  
 import AppHeader from '../../Layout/AppHeader/'
@@ -79,7 +79,17 @@ const Carrinho = (props) => {
 
                            <div style={{alignSelf: 'center', marginTop: '30px'}}>
                              <Link className="linkBaixo sem-underline" to='/confirmacao'>
-                                 <Button style={{position:'inherit'}} className="mb-2 mr-2 card-cart-button" color="info" disabled={props.carrinho.length === 0}>Finalizar Compra</Button>
+                                 <Button 
+                                 style={{position:'inherit', 
+                                        backgroundColor: '#17a2b8',
+                                        color: '#fff',
+                                        fontWeight: 'bold',
+                                        fontSize: '15px'
+                                    }} 
+                                         color="info" disabled={props.carrinho.length === 0}>
+                                    <FontAwesomeIcon style={{marginRight: '10px'}} icon={faShoppingBasket} size="1x"/>
+                                    Finalizar Compra
+                                 </Button>
                              </Link>
       		           </div>
                             

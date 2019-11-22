@@ -8,6 +8,8 @@ import {
     toast,
     Bounce
 } from 'react-toastify'
+import {faCreditCard} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 // Layout
 
@@ -86,59 +88,81 @@ class Login extends React.Component{
 
         return (
             <Fragment>
-                
-                <AppHeader/>
 
-                <div className="Login">
-                    <form onSubmit={this.handleSubmit}>
-                        <Row form>
-                            <Col md={12}>
-                                <FormGroup controlId="nome" bsSize="large">
-                                    <ControlLabel>Nome</ControlLabel>
-                                    <FormControl
-                                    autoFocus
-                                    type="text"
-                                    value={this.state.nome}
-                                    onChange={this.handleChange}
-                                    />
-                                </FormGroup>
-                                <FormGroup controlId="email" bsSize="large">
-                                    <ControlLabel>E-mail</ControlLabel>
-                                    <FormControl
-                                    value={this.state.email}
-                                    onChange={this.handleChange}
-                                    type="email"
-                                    />
-                                </FormGroup>
-                            
-                                <FormGroup controlId="telefone" bsSize="large">
-                                    <ControlLabel>Telefone</ControlLabel>
-                                    <FormControl
-                                    value={this.state.telefone}
-                                    onChange={this.handleChange}
-                                    />
-                                </FormGroup>
-                                <Button
-                                    block
-                                    bsSize="large"
-                                    disabled={!this.validateForm()}
-                                    type="submit"
-                                    style= {{
-                                        backgroundColor: '#17a2b8',
-                                        color: '#fff',
-                                        fontWeight: 'bold'
-                                    }}
-                                >
-                                    Confirmar
-                                </Button>
+            <AppHeader/>
 
-                            </Col>
-                        </Row>
+                <div className="app-main">
+                    <div className="app-main__outer">
+                        <div className="app-main__inner">
 
-                    </form>
+                            <div className="app-page-title">
+                                    <div className="page-title-wrapper">
+                                        <div className="page-title-heading">
+                                            <div>
+                                                <div
+                                                    className="page-title-subheading">
+                                                    Finalizar 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <div className="Login">
+                                <form onSubmit={this.handleSubmit}>
+                                    <Row form>
+                                        <Col md={12}>
+                                            <FormGroup controlId="nome" bsSize="large">
+                                                <ControlLabel>Nome</ControlLabel>
+                                                <FormControl
+                                                autoFocus
+                                                type="text"
+                                                value={this.state.nome}
+                                                onChange={this.handleChange}
+                                                />
+                                            </FormGroup>
+                                            <FormGroup controlId="email" bsSize="large">
+                                                <ControlLabel>E-mail</ControlLabel>
+                                                <FormControl
+                                                value={this.state.email}
+                                                onChange={this.handleChange}
+                                                type="email"
+                                                />
+                                            </FormGroup>
+                                        
+                                            <FormGroup controlId="telefone" bsSize="large">
+                                                <ControlLabel>Telefone</ControlLabel>
+                                                <FormControl
+                                                value={this.state.telefone}
+                                                onChange={this.handleChange}
+                                                />
+                                            </FormGroup>
+                                            <Button
+                                                block
+                                                bsSize="large"
+                                                disabled={!this.validateForm()}
+                                                color="info"
+                                                type="submit"
+                                                style= {{
+                                                    backgroundColor: '#17a2b8',
+                                                    color: '#fff',
+                                                    fontWeight: 'bold',
+                                                    fontSize: '15px'
+                                                }}
+                                            >
+                                                <FontAwesomeIcon style={{marginRight: '10px'}} icon={faCreditCard} size="1x"/>
+                                                Confirmar
+                                            </Button>
+
+                                        </Col>
+                                    </Row>
+
+                                </form>
+                            </div>
+                    
+                        </div>
+                    </div>
                 </div>
-                   
-                <AppFooter></AppFooter>
             </Fragment>
         )
     }
