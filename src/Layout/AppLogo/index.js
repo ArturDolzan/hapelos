@@ -49,7 +49,7 @@ class HeaderLogo extends React.Component {
 
         return (
             <Fragment>
-                <Link to={'/'}>
+                <Link to={'/mimos/'}>
                     <div className="app-header__logo">
                         <div className="logo-src"/>
                       

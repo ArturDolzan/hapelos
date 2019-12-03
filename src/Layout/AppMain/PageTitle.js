@@ -39,12 +39,12 @@ class PageTitle extends Component {
             <Fragment>
                 <Animated animationIn="lightSpeedIn" animationOut="lightSpeedOut" isVisible={true} animationInDuration={500}> 
                     {this.props.enableMobileMenuSmall && (
-                        <Link to={'/'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm">
+                        <Link to={'/mimos/'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm">
                             <i className="pe-7s-home btn-icon-wrapper font-size-xlg"> </i>
                         </Link>
                     )}
                     
-                    <Link to={'/carrinho'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm">
+                    <Link to={'/mimos/carrinho'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm">
                         <i className="pe-7s-cart btn-icon-wrapper font-size-xlg"> </i>
                         {this.renderQtdeCarrinho()}
                     </Link>
@@ -52,7 +52,7 @@ class PageTitle extends Component {
                     {!this.props.auth && (                                        
                         <Fragment>
                             
-                            <Link to={'/administrativo'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm"> 
+                            <Link to={'/mimos/administrativo'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkBranco mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm"> 
                                 <i className="pe-7s-settings btn-icon-wrapper font-size-xlg"> </i>                
                             </Link>
 
@@ -62,7 +62,7 @@ class PageTitle extends Component {
                     {this.props.auth && (                                        
                         <Fragment>
                             
-                            <Link to={'/administrativo'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkVermelho mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm"> 
+                            <Link to={'/mimos/administrativo'} onClick={() => {this.alterarEstadoMenuMovel(false)}} className="linkVermelho mb-2 mr-2 btn-icon btn-icon-only btn btn-link btn-sm"> 
                                 <i className="pe-7s-settings btn-icon-wrapper font-size-xlg"> </i>                
                             </Link>
 
