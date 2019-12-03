@@ -7958,13 +7958,13 @@ button,
 .app-header__logo {
   padding: 0 1.5rem;
   height: 60px;
-  width: 100px;
+  width: 200px;
   display: flex;
   align-items: center;
   transition: width .2s; }
   .app-header__logo .logo-src {
-    height: 40px;
-    width: 60px;    
+    height: 30px;
+    width: 115px;    
     background: url("~assets/utils/images/logo-inverse.png");
     background-repeat: round !important; }
 
