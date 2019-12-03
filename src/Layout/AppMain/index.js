@@ -35,9 +35,9 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Router basename={'/mimos'}>
-                    <Route path="/mimos/shop" component={Dashboards}/>
-                </Router>
+                
+                <Route path="/shop" component={Dashboards}/>
+                
             </Suspense>
 
             <Suspense fallback={
@@ -56,9 +56,9 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Router basename={'/mimos'}>
-                    <Route path="/mimos/shopitem" component={ShopItem}/>
-                </Router>
+                
+                <Route path="/shopitem" component={ShopItem}/>
+                
             </Suspense>
 
             <Suspense fallback={
@@ -77,9 +77,9 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Router basename={'/mimos'}>
-                    <Route path="/mimos/carrinho" component={Carrinho}/>
-                </Router>
+
+                <Route path="/carrinho" component={Carrinho}/>
+
             </Suspense>
 
             <Suspense fallback={
@@ -98,9 +98,9 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Router basename={'/mimos'}>
-                    <Route path="/mimos/confirmacao" component={Login}/>
-                </Router>
+                
+                <Route path="/confirmacao" component={Login}/>
+                
             </Suspense>
 
             <Suspense fallback={
@@ -119,14 +119,14 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Router basename={'/mimos'}>
-                    <Route path="/mimos/administrativo" component={Administrativo}/>
-                </Router>
+
+                <Route path="/administrativo" component={Administrativo}/>
+
             </Suspense>
 
 
-            <Route exact path="/mimos/" render={() => (
-                <Redirect to="/mimos/shop"/>
+            <Route exact path="/" render={() => (
+                <Redirect to="/shop"/>
             )}/>
             <ToastContainer/>
         </Fragment>

@@ -2,9 +2,8 @@
   "name": "hapelos",
   "version": "1.0.0",
   "private": true,
-  "description": "Há Pelos",
-  "author": "Yeah",
-  "homepage": "https://www.infisio.com.br/mimos",
+  "description": "Mimos",
+  "author": "Mimos",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.15",
     "@fortawesome/free-brands-svg-icons": "5.7.2",
