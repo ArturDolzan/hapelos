@@ -4,6 +4,7 @@
   "private": true,
   "description": "Mimos",
   "author": "Mimos",
+  "homepage": "/mimos",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.15",
     "@fortawesome/free-brands-svg-icons": "5.7.2",
