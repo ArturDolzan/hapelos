@@ -35,7 +35,9 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Route path="/mimos/shop" component={Dashboards}/>
+                <Router basename={'/mimos'}>
+                    <Route path="/mimos/shop" component={Dashboards}/>
+                </Router>
             </Suspense>
 
             <Suspense fallback={
@@ -54,7 +56,9 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Route path="/mimos/shopitem" component={ShopItem}/>
+                <Router basename={'/mimos'}>
+                    <Route path="/mimos/shopitem" component={ShopItem}/>
+                </Router>
             </Suspense>
 
             <Suspense fallback={
@@ -73,7 +77,9 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Route path="/mimos/carrinho" component={Carrinho}/>
+                <Router basename={'/mimos'}>
+                    <Route path="/mimos/carrinho" component={Carrinho}/>
+                </Router>
             </Suspense>
 
             <Suspense fallback={
@@ -92,7 +98,9 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Route path="/mimos/confirmacao" component={Login}/>
+                <Router basename={'/mimos'}>
+                    <Route path="/mimos/confirmacao" component={Login}/>
+                </Router>
             </Suspense>
 
             <Suspense fallback={
@@ -111,7 +119,9 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Route path="/mimos/administrativo" component={Administrativo}/>
+                <Router basename={'/mimos'}>
+                    <Route path="/mimos/administrativo" component={Administrativo}/>
+                </Router>
             </Suspense>
 
 
