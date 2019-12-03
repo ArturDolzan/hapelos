@@ -6,7 +6,7 @@ const baseDir = `${__dirname}/build/`
 
 app.use(express.static(`${baseDir}`))
 
-app.get('*', (req,res) => res.sendFile('index.html' , { root : baseDir }))
+app.get('*', (req,res) => res.sendFile('mimos/index.html' , { root : baseDir }))
 
 const port = 4001
 
