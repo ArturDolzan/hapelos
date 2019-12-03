@@ -35,7 +35,7 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Route path="/shop" component={Dashboards}/>
+                <Route path="/mimos/shop" component={Dashboards}/>
             </Suspense>
 
             <Suspense fallback={
@@ -54,7 +54,7 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Route path="/shopitem" component={ShopItem}/>
+                <Route path="/mimos/shopitem" component={ShopItem}/>
             </Suspense>
 
             <Suspense fallback={
@@ -73,7 +73,7 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Route path="/carrinho" component={Carrinho}/>
+                <Route path="/mimos/carrinho" component={Carrinho}/>
             </Suspense>
 
             <Suspense fallback={
@@ -92,7 +92,7 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Route path="/confirmacao" component={Login}/>
+                <Route path="/mimos/confirmacao" component={Login}/>
             </Suspense>
 
             <Suspense fallback={
@@ -111,12 +111,12 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Route path="/administrativo" component={Administrativo}/>
+                <Route path="/mimos/administrativo" component={Administrativo}/>
             </Suspense>
 
 
-            <Route exact path="/" render={() => (
-                <Redirect to="/shop"/>
+            <Route exact path="/mimos/" render={() => (
+                <Redirect to="/mimos/shop"/>
             )}/>
             <ToastContainer/>
         </Fragment>
